@@ -29,7 +29,7 @@ const AgentSection = () => {
 
                 <Image src="/images/jett.png" alt="jett agent" width={600} height={600} sizes="100vw" className="relative xl:w-[600px] lg:w-[500px] h-auto z-10 lg:-translate-y-14" />
 
-                <Link href='/' className='absolute lg:bottom-10 bottom-20 md:bottom-26 lg:left-42 max-lg:left-1/2 max-lg:-translate-x-1/2 text-5xl -rotate-18 md:-rotate-10 lg:-rotate-4 uppercase lg:text-black text-white z-10 w-max'>FIND < br className='lg:hidden block'/>AGENT</Link>
+                <Link href='/' className='absolute lg:bottom-10 bottom-20 md:bottom-26 lg:left-42 max-lg:left-1/2 max-lg:-translate-x-1/2 text-5xl -rotate-18 md:-rotate-10 lg:-rotate-4 uppercase lg:text-black text-white z-10 w-max max-lg:hover:text-gray-300 lg:hover:text-white transition-all duration-300'>FIND < br className='lg:hidden block' />AGENT</Link>
             </div>
 
         </div>

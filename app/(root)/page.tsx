@@ -1,5 +1,6 @@
 import AgentSection from "@/components/AgentSection";
 import HeroSection from "@/components/HeroSection";
+import WeaponSection from "@/components/WeaponSection";
 
 export default function Home() {
     return (
@@ -7,9 +8,8 @@ export default function Home() {
             {/* md:max-w-7xl mx-auto px-5 md:px-6 */}
             <HeroSection />
             <AgentSection />
-            <div className="w-full h-[300px] bg-black -mt-72 lg:-mt-44">
-
-            </div>
+            <div className="w-full h-[200px] bg-black -mt-72 lg:-mt-44" />
+            <WeaponSection />
         </div>
     );
 }
