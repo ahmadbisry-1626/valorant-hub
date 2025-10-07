@@ -1,5 +1,6 @@
 import AgentSection from "@/components/AgentSection";
 import HeroSection from "@/components/HeroSection";
+import MapSection from "@/components/MapSection";
 import WeaponSection from "@/components/WeaponSection";
 import Image from "next/image";
 
@@ -12,9 +13,9 @@ export default function Home() {
             <div className="w-full h-[200px] bg-black -mt-72 lg:-mt-44" />
             <WeaponSection />
 
-            <div className="w-full relative bg-black flex items-center justify-center">
-                <div className="w-full h-[700px] bg-main mask-clip-path-map absolute top-0" />
-            </div>
+            <MapSection />
+
+            <div className="h-[300px]" />
         </div>
     );
 }

@@ -16,7 +16,24 @@ const AbstractImage = ({ path, width, height, className }: { path: string, width
 
 const HeroSection = () => {
     return (
-        <div className='w-full min-h-screen flex items-center justify-center relative'>
+        <div
+            className='w-full min-h-screen flex items-center justify-center relative'
+        >
+            <div
+                className="absolute inset-0 z-0 pointer-events-none"
+                style={{
+                    backgroundImage: `
+        linear-gradient(to right, #d1d5db 1px, transparent 1px),
+        linear-gradient(to bottom, #d1d5db 1px, transparent 1px)
+      `,
+                    backgroundSize: "32px 32px",
+                    WebkitMaskImage:
+                        "radial-gradient(ellipse 80% 80% at 0% 0%, #000 50%, transparent 90%)",
+                    maskImage:
+                        "radial-gradient(ellipse 80% 80% at 0% 0%, #000 50%, transparent 90%)",
+                }}
+            />
+
             <div className='absolute md:bottom-32 bottom-20 md:left-80 left-32 flex items-center gap-1'>
                 <div className='md:size-3 size-2 bg-main' />
                 <div className='md:size-3 size-2 bg-main' />
