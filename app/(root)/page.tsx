@@ -1,8 +1,8 @@
 import AgentSection from "@/components/AgentSection";
+import GameModeSection from "@/components/GameModeSection";
 import HeroSection from "@/components/HeroSection";
 import MapSection from "@/components/MapSection";
 import WeaponSection from "@/components/WeaponSection";
-import Image from "next/image";
 
 export default function Home() {
     return (
@@ -15,8 +15,10 @@ export default function Home() {
 
             <MapSection />
 
-            <div className="w-full h-[900px] bg-white relative">
-                <div className="w-full mask-clip-path-map-bottom bg-main absolute top-0 h-[500px] md:h-[700px] md:-translate-y-20 -translate-y-16" />
+            <GameModeSection />
+
+            <div className="h-[500px] bg-white">
+
             </div>
         </div>
     );
