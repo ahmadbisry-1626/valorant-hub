@@ -19,7 +19,12 @@ const MapSection = () => {
                     className='absolute bottom-20'
                 />
 
-                <div className='w-full md:max-w-7xl mx-auto px-5 md:px-6 flex flex-col md:gap-10 gap-5'>
+                <div className='w-full md:max-w-7xl mx-auto px-5 md:px-6 flex flex-col md:gap-10 gap-5 relative'>
+                    <div className='flex items-center gap-1 absolute max-md:top-16 md:top-20 md:right-6 max-md:right-5'>
+                        <div className='size-4 md:size-5 bg-black' />
+                        <div className='size-4 md:size-5 bg-black' />
+                    </div>
+
                     <h2 className='text-4xl lg:text-5xl text-left leading-tight'>
                         Explore New <br /> Grounds
                     </h2>

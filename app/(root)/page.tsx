@@ -15,7 +15,9 @@ export default function Home() {
 
             <MapSection />
 
-            <div className="h-[300px]" />
+            <div className="w-full h-[900px] bg-white relative">
+                <div className="w-full mask-clip-path-map-bottom bg-main absolute top-0 h-[500px] md:h-[700px] md:-translate-y-20 -translate-y-16" />
+            </div>
         </div>
     );
 }

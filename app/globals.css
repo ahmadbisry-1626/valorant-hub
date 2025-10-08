@@ -153,8 +153,9 @@
     }
 
     .mask-clip-path-map-bottom {
-        clip-path: polygon(100% 0, 100% 84%, 84% 95%, 63% 82%, 67% 97%, 35% 89%, 16% 100%, 0 89%, 0 0);
+        clip-path: polygon(100% 0, 100% 15%, 87% 25%, 72% 15%, 76% 30%, 41% 15%, 20% 30%, 0 15%, 0 0);
     }
+
 
     .bg-radial-top {
         background: radial-gradient(circle at top, #1c1c1c, #1A1A1A);
