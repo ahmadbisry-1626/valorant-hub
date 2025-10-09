@@ -6,7 +6,7 @@ import { HiMiniPaperAirplane } from "react-icons/hi2";
 
 const MapSection = () => {
     return (
-        <div className="w-full relative bg-black flex items-center justify-center">
+        <div className="w-full relative bg-black">
             <div className="w-full h-[700px] bg-main mask-clip-path-map absolute top-0" />
 
             <div className='w-full bg-main mt-40 pb-20 z-10 relative'>

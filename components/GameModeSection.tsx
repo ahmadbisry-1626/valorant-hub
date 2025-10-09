@@ -8,7 +8,7 @@ const GameModeSection = () => {
     const [isActive, setIsActive] = useState(gameMode[0].name || null)
 
     return (
-        <div className="w-full bg-white relative items-center justify-center overflow-hidden">
+        <div className="w-full bg-white relative overflow-hidden pb-20">
             <div className="w-full mask-clip-path-map-bottom bg-main absolute top-0 h-[500px] md:h-[700px] md:-translate-y-20 -translate-y-16" />
 
             <div className='flex flex-col gap-10 max-md:gap-5 md:max-w-7xl mx-auto px-5 md:px-6 w-full mt-40 md:mt-52 items-center justify-center'>

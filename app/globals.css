@@ -156,6 +156,9 @@
         clip-path: polygon(100% 0, 100% 15%, 87% 25%, 72% 15%, 76% 30%, 41% 15%, 20% 30%, 0 15%, 0 0);
     }
 
+    .mask-clip-path-gameEQ {
+        clip-path: polygon(0 0, 100% 30%, 100% 50%, 0 80%);
+    }
 
     .bg-radial-top {
         background: radial-gradient(circle at top, #1c1c1c, #1A1A1A);
