@@ -164,4 +164,12 @@
         background: radial-gradient(circle at top, #1c1c1c, #1A1A1A);
     }
 
+    .triangle-left {
+        clip-path: polygon(100% 0, 0 0, 0 100%);
+    }
+
+    .triangle-right {
+        clip-path: polygon(100% 100%, 100% 0, 0 100%);
+    }
+
 }

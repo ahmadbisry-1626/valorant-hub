@@ -1,4 +1,6 @@
 import AgentSection from "@/components/AgentSection";
+import BundleSection from "@/components/BundleSection";
+import CurrencySection from "@/components/CurrencySection";
 import GameEquipmentSection from "@/components/GameEquipmentSection";
 import GameModeSection from "@/components/GameModeSection";
 import HeroSection from "@/components/HeroSection";
@@ -15,8 +17,8 @@ export default function Home() {
             <MapSection />
             <GameModeSection />
             <GameEquipmentSection />
-
-            <div className="h-[300px]"/>
+            <CurrencySection />
+            <BundleSection />
         </div>
     );
 }

@@ -7,10 +7,8 @@ import React from 'react'
 const GameEquipmentSection = () => {
     const { data: Gear, isLoading, isError } = useGear()
 
-    console.log(Gear)
-
     return (
-        <div className='relative w-full bg-black mask-clip-path-gameEQ h-[250px] md:h-[400px] top-0 pt-10'>
+        <div className='relative w-full bg-main mask-clip-path-gameEQ h-[250px] md:h-[400px] top-0 pt-10 z-10 md:-mb-52 -mb-40'>
 
             <div className='w-full max-w-7xl mx-auto px-5 md:px-6 relative flex items-center'>
                 {Gear?.data.map((gear, i) => {

@@ -49,3 +49,18 @@ export const gameMode = [
         imageUrl: 'https://media.valorant-api.com/gamemodes/5d0f264b-4ebe-cc63-c147-809e1374484b/displayicon.png'
     },
 ]
+
+export const currency = [
+    {
+        name: 'Valorant Points',
+        imageUrl: '/images/vp.png',
+    },
+    {
+        name: 'Kingdom Credits',
+        imageUrl: '/images/kc.png',
+    },
+    {
+        name: 'Radianite Points',
+        imageUrl: '/images/radianite.png',
+    },
+]
