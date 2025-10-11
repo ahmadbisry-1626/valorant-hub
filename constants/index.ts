@@ -64,3 +64,53 @@ export const currency = [
         imageUrl: '/images/radianite.png',
     },
 ]
+
+export const navLinks = [
+    {
+        name: 'Gameplay',
+        dropdown: [
+            {
+                name: 'Game Modes',
+                path: '/game-modes'
+            },
+            {
+                name: 'Weapons',
+                path: '/weapons'
+            },
+            {
+                name: 'Maps',
+                path: '/maps'
+            }
+        ]
+    },
+    {
+        name: 'Collections',
+        dropdown: [
+            {
+                name: 'Bundles',
+                path: '/bundles'
+            },
+            {
+                name: 'Buddies',
+                path: '/buddies'
+            },
+            {
+                name: 'Sprays',
+                path: '/sprays'
+            }
+        ]
+    },
+    {
+        name: 'Profile',
+        dropdown: [
+            {
+                name: 'Player Cards',
+                path: '/player-cards'
+            },
+            {
+                name: 'Titles',
+                path: '/titles'
+            }
+        ]
+    }
+]
