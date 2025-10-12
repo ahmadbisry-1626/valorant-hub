@@ -74,11 +74,11 @@ const HeroSection = () => {
                 />
             </div>
 
-            <div className='flex flex-col gap-5 md:gap-10 items-center z-10 relative'>
+            <div className='flex flex-col gap-5 md:gap-10 items-center z-10 relative' id='hero'>
                 <Image src={'/images/valorant-logo.png'} alt='logo valorant' width={250} height={250} sizes='100vw' className='md:w-[250px] md:h-[205px] w-[200px] h-[160px]' />
                 <div className='flex flex-col gap-3 items-center'>
                     <h1 className='md:text-5xl text-4xl text-main'>Valorant Hub</h1>
-                    <p className='md:text-2xl text-lg text-center md:max-w-xl max-w-md'>
+                    <p className='md:text-2xl text-lg text-center md:max-w-xl max-w-md md:px-6 px-5'>
                         Your go-to source for strategies, updates, and competitive insights
                     </p>
                 </div>
