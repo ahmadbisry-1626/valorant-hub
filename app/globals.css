@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@tailwind utilities;
 
 @custom-variant dark (&:is(.dark *));
 
@@ -170,6 +171,10 @@
 
     .triangle-right {
         clip-path: polygon(100% 100%, 100% 0, 0 100%);
+    }
+
+    .input {
+        @apply border-0 focus:ring-0 focus:ring-offset-0 focus-visible:border-none focus-visible:outline-none focus-visible:ring-transparent focus-visible:ring-offset-0;
     }
 
 }
