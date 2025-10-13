@@ -4,12 +4,29 @@ import { useAgent } from '@/hook/queries'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useMemo, useState } from 'react'
-import { FaRegBookmark, FaRegHeart } from "react-icons/fa";
+import { FaBookmark, FaHeart, FaRegBookmark, FaRegHeart } from "react-icons/fa";
 import { TbCopy } from "react-icons/tb";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
+import { toast } from 'sonner'
+import { IoCheckmarkDoneSharp } from "react-icons/io5";
 
 const Agents = ({ query, role }: { query: string, role: string }) => {
     const { data: agents, isLoading, isError } = useAgent();
+    const [isLiked, setIsLiked] = useState<Record<string, boolean>>({})
+    const [isSaved, setisSaved] = useState<Record<string, boolean>>({})
+    const [isCopied, setIsCopied] = useState<Record<string, boolean>>({})
+
+    const toggleLike = (uuid: string) => {
+        setIsLiked((prev) => ({
+            ...prev, [uuid]: !prev[uuid]
+        }))
+    }
+
+    const toggleSave = (uuid: string) => {
+        setisSaved((prev) => ({
+            ...prev, [uuid]: !prev[uuid]
+        }))
+    }
 
     const filteredAgents = useMemo(() => {
         if (!agents?.data) return [];
@@ -37,7 +54,7 @@ const Agents = ({ query, role }: { query: string, role: string }) => {
                 </div>
             )}
 
-            <div className='grid md:grid-cols-3 grid-cols-1 gap-5'>
+            <div className='grid sm:grid-cols-3 grid-cols-1 gap-5'>
                 {filteredAgents.map((agent) => (
                     <div key={agent.uuid} className='flex flex-col overflow-hidden rounded-[12px] bg-white-light shadow-sm'>
                         <Link href={`/agents/${agent.uuid}`} className='px-5 py-2 flex items-center gap-3'>
@@ -57,7 +74,7 @@ const Agents = ({ query, role }: { query: string, role: string }) => {
                             </div>
                         </Link>
 
-                        <Link href={`/agents/${agent.uuid}`} className='w-full h-[300px] md:h-[400px] bg-black relative overflow-hidden'>
+                        <Link href={`/agents/${agent.uuid}`} className='w-full h-[300px] md:h-[300px] lg:h-[400px] bg-black relative overflow-hidden'>
                             <Image
                                 src={agent.background}
                                 alt={agent.displayName}
@@ -80,11 +97,34 @@ const Agents = ({ query, role }: { query: string, role: string }) => {
                         <div className='px-5 py-3 flex flex-col gap-3 bg-white-light'>
                             <div className='flex items-center justify-between'>
                                 <div className='flex items-center gap-3'>
-                                    <FaRegHeart className='size-6' />
-                                    <TbCopy className='size-6.5' />
+                                    <div className='relative cursor-pointer group' onClick={() => toggleLike(agent.uuid)}>
+                                        <FaRegHeart className={`size-6 ${isLiked[agent.uuid] ? 'opacity-0' : 'opacity-100'} transition-all duration-200`} />
+                                        <FaHeart className={`absolute top-0 left-0 size-6 text-red-500 transition-all duration-200 ${isLiked[agent.uuid] ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`} />
+                                    </div>
+                                    <button
+                                        className='relative cursor-pointer'
+                                        disabled={isCopied[agent.uuid]}
+                                        onClick={async () => {
+                                            await navigator.clipboard.writeText(`https://valorant-hub.vercel.app/agents/${agent.uuid}`);
+                                            toast.success(`${agent.displayName} link copied to clipboard`);
+                                            setIsCopied((prev) => ({
+                                                ...prev, [agent.uuid]: true
+                                            }))
+                                            setTimeout(() => {
+                                                setIsCopied((prev) => ({
+                                                    ...prev, [agent.uuid]: false
+                                                }))
+                                            }, 3000);
+                                        }}>
+                                        <TbCopy className={`size-6.5 ${isCopied[agent.uuid] ? 'opacity-0' : ' opacity-100'} transition-all duration-200`} />
+                                        <IoCheckmarkDoneSharp className={`absolute top-0 left-0 size-7 text-black transition-all duration-200 ${isCopied[agent.uuid] ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`} />
+                                    </button>
                                 </div>
 
-                                <FaRegBookmark className='size-6' />
+                                <div className='relative cursor-pointer group' onClick={() => toggleSave(agent.uuid)}>
+                                    <FaRegBookmark className={`size-6 ${isSaved[agent.uuid] ? 'opacity-0' : 'opacity-100'} transition-all duration-200`} />
+                                    <FaBookmark className={`absolute top-0 left-0 size-6 text-black transition-all duration-200 ${isSaved[agent.uuid] ? 'opacity-100 scale-100' : 'opacity-0 scale-110'}`} />
+                                </div>
                             </div>
 
                             <div className="flex items-center gap-2">
