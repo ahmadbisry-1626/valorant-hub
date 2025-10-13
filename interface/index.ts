@@ -37,6 +37,11 @@ export interface AgentResponse {
   data: Agent[];
 }
 
+export interface AgentResponseById {
+  status: number;
+  data: Agent;
+}
+
 export interface Agent {
   uuid: string;
   displayName: string;

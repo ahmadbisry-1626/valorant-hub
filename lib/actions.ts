@@ -1,6 +1,6 @@
 "use server"
 
-import { AgentResponse, GearResponse } from "@/interface"
+import { AgentResponse, AgentResponseById, GearResponse } from "@/interface"
 import { axiosInstance } from "./client"
 
 export const fetchGear = async (): Promise<GearResponse> => {
@@ -22,5 +22,16 @@ export const fetchAgents = async (): Promise<AgentResponse> => {
     } catch (error) {
         console.log(error)
         throw new Error("Failed to fetch agents data")
+    }
+}
+
+export const fetchAgentById = async (id: string): Promise<AgentResponseById> => {
+    try {
+        const response = await axiosInstance.get(`/agents/${id}`)
+
+        return response.data
+    } catch (error) {
+        console.log(error)
+        throw new Error("Failed to fetch agent data by id")
     }
 }
