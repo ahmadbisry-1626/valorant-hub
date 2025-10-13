@@ -13,7 +13,7 @@ const NavbarLarge = () => {
 
     return (
         <div className="md:flex items-center gap-2 hidden">
-            <Link href="/agents" className={`px-4 py-2 text-lg hover:bg-[#F2F2F2] transition-all duration-200 rounded-[8px] ${pathname === '/agents' && 'bg-main text-white'}`}>
+            <Link href="/agents" className={`px-4 py-2 text-lg hover:bg-[#F2F2F2] transition-all duration-200 rounded-[8px] ${pathname === '/agents' && 'bg-main text-white hover:bg-main'}`}>
                 Agents
             </Link>
 

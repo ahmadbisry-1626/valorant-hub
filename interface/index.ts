@@ -31,3 +31,49 @@ export interface ShopData {
   newImage2: string | null;
   assetPath: string;
 }
+
+export interface AgentResponse {
+  status: number;
+  data: Agent[];
+}
+
+export interface Agent {
+  uuid: string;
+  displayName: string;
+  description: string;
+  developerName: string;
+  releaseDate: string;
+  characterTags: string[] | null;
+  displayIcon: string;
+  displayIconSmall: string;
+  bustPortrait: string;
+  fullPortrait: string;
+  fullPortraitV2: string;
+  killfeedPortrait: string;
+  minimapPortrait: string;
+  homeScreenPromoTileImage: string | null;
+  background: string;
+  backgroundGradientColors: string[];
+  assetPath: string;
+  isFullPortraitRightFacing: boolean;
+  isPlayableCharacter: boolean;
+  isAvailableForTest: boolean;
+  isBaseContent: boolean;
+  role: Role | null;
+  abilities: Ability[];
+}
+
+export interface Role {
+  uuid: string;
+  displayName: string;
+  description: string;
+  displayIcon: string;
+  assetPath: string;
+}
+
+export interface Ability {
+  slot: string;
+  displayName: string;
+  description: string;
+  displayIcon: string;
+}

@@ -114,3 +114,18 @@ export const navLinks = [
         ]
     }
 ]
+
+export const roles = [
+    {
+        name: 'Initiator'
+    },
+    {
+        name: 'Duelist'
+    },
+    {
+        name: 'Sentinel'
+    },
+    {
+        name: 'Controller'
+    }
+]
