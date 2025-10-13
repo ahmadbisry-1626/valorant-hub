@@ -27,7 +27,7 @@ const AgentDetails = ({ id }: { id: string }) => {
                 <h1 className='text-3xl md:text-4xl'>{agent.data.displayName}</h1>
             </div>
             <div className='lg:sticky lg:top-20'>
-                <div className='sm:w-[400px] w-[300px] h-[500px] bg-black relative overflow-hidden rounded-[12px]'>
+                <div className='sm:w-[400px] w-[300px] h-[450px] md:h-[500px] bg-black relative overflow-hidden rounded-[12px]'>
                     <Image
                         src={agent.data.background}
                         alt={agent.data.displayName}
@@ -73,7 +73,7 @@ const AgentDetails = ({ id }: { id: string }) => {
                     <p className='text-sm md:text-base text-gray text-justify break-normal'>{agent.data.description}</p>
                 </div>
 
-                <div className='flex flex-col gap-1'>
+                <div className='flex flex-col gap-2'>
                     <h2 className='text-xl'>Gradient Colors</h2>
                     <div className='flex items-center gap-2 flex-wrap'>
                         {agent.data.backgroundGradientColors.map((color, i) => (
@@ -99,7 +99,7 @@ const AgentDetails = ({ id }: { id: string }) => {
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[50px] max-md:text-xs">Slot</TableHead>
-                                <TableHead className="w-[50px] max-md:text-xs">Name</TableHead>
+                                <TableHead className="w-[80px] md:w-[100px] max-md:text-xs">Name</TableHead>
                                 <TableHead className='max-md:text-xs'>Description</TableHead>
                                 <TableHead className="text-right max-md:text-xs">Icon</TableHead>
                             </TableRow>
@@ -109,7 +109,7 @@ const AgentDetails = ({ id }: { id: string }) => {
                             {agent.data.abilities.map((ability) => (
                                 <TableRow key={ability.displayName} className="align-top">
                                     <TableCell className='text-gray max-md:text-xs'>{ability.slot}</TableCell>
-                                    <TableCell className='text-gray max-md:text-xs'>{ability.displayName}</TableCell>
+                                    <TableCell className='text-gray max-md:text-xs whitespace-normal break-words leading-relaxed'>{ability.displayName}</TableCell>
                                     <TableCell className="whitespace-normal break-words leading-relaxed text-gray max-md:text-xs">
                                         {ability.description}
                                     </TableCell>
