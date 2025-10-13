@@ -9,26 +9,25 @@ import { TbCopy } from "react-icons/tb";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 
 const Agents = ({ query, role }: { query: string, role: string }) => {
-    const { data: agents, isLoading, isError } = useAgent()
-    const [filteredAgents, setFilteredAgents] = useState(agents?.data ?? [])
+    const { data: agents, isLoading, isError } = useAgent();
 
-    useMemo(() => {
-        const filtered = agents?.data?.filter((agent) => {
-            const name = agent?.displayName?.toLowerCase() ?? ''
-            const search = query?.toLowerCase() ?? ''
-            const matchName = name.includes(search)
-            const matchRole = role ? agent.role?.displayName === role : true
-            return matchName && matchRole
-        })
+    const filteredAgents = useMemo(() => {
+        if (!agents?.data) return [];
 
-        setFilteredAgents(filtered ?? [])
-    }, [query, role, agents])
+        return agents.data.filter((agent) => {
+            const name = agent?.displayName?.toLowerCase() ?? '';
+            const search = query?.toLowerCase() ?? '';
+            const matchName = name.includes(search);
+            const matchRole = role ? agent.role?.displayName === role : true;
+            return matchName && matchRole;
+        });
+    }, [agents, query, role]);
 
     return (
         <div className='w-full md:max-w-7xl mx-auto px-5 md:px-6'>
             {isLoading && (
                 <div className='w-full h-[300px] md:h-[400px] flex items-center justify-center'>
-                    <div className="loader"/>
+                    <div className="loader" />
                 </div>
             )}
 
