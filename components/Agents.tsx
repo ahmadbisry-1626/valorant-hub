@@ -54,7 +54,7 @@ const Agents = ({ query, role }: { query: string, role: string }) => {
                 </div>
             )}
 
-            <div className='grid sm:grid-cols-3 grid-cols-1 gap-5'>
+            <div className='grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5'>
                 {filteredAgents.map((agent) => (
                     <div key={agent.uuid} className='flex flex-col overflow-hidden rounded-[12px] bg-white-light shadow-sm'>
                         <Link href={`/agents/${agent.uuid}`} className='px-5 py-2 flex items-center gap-3'>
