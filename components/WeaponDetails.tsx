@@ -19,8 +19,8 @@ import WeaponSkinCard from './WeapinSkinCard';
 const WeaponDetails = ({ id }: { id: string }) => {
     const { data: weapon, isLoading, isError } = useWeaponById(id)
     const sidearm = weapon?.data?.shopData?.categoryText === 'Sidearms'
-
     if (!weapon || !weapon.data && !isLoading) return
+    const melee = weapon.data.displayName === 'Melee'
 
     return (
         <div className='w-full flex flex-col gap-5 md:gap-7 md:max-w-7xl mx-auto px-5 md:px-6 relative'>
@@ -38,7 +38,7 @@ const WeaponDetails = ({ id }: { id: string }) => {
                     width={400}
                     height={400}
                     sizes='100vw'
-                    className={`object-cover ${sidearm && 'scale-70'} relative md:w-[400px] h-auto w-[250px]`}
+                    className={`object-cover ${sidearm && 'scale-70'} relative md:w-[400px] h-auto w-[250px] ${melee && 'scale-70'}`}
                 />
             </div>
 
@@ -92,7 +92,7 @@ const WeaponDetails = ({ id }: { id: string }) => {
                                 {safeValue(cleanEnum(weapon.data.weaponStats?.feature))}
                             </TableCell>
                             <TableCell className='text-gray max-md:text-xs'>
-                                {safeValue(weapon.data.weaponStats?.fireMode)}
+                                {safeValue(cleanEnum(weapon.data.weaponStats?.fireMode))}
                             </TableCell>
                             <TableCell className='text-gray max-md:text-xs'>
                                 {safeValue(cleanEnum(weapon.data.weaponStats?.altFireType))}
@@ -137,42 +137,44 @@ const WeaponDetails = ({ id }: { id: string }) => {
                 </Table>
             </div>
 
-            <div className='flex flex-col gap-3'>
-                <h2 className='text-xl'>Damage Range</h2>
-                <Table className="table-auto w-full">
-                    <TableHeader>
-                        <TableRow>
-                            <TableHead className="max-md:text-xs">Range Start</TableHead>
-                            <TableHead className="max-md:text-xs">Range End</TableHead>
-                            <TableHead className="max-md:text-xs">Head Damage</TableHead>
-                            <TableHead className="max-md:text-xs">Body Damage</TableHead>
-                            <TableHead className="max-md:text-xs">Leg Damage</TableHead>
-                        </TableRow>
-                    </TableHeader>
-
-                    <TableBody>
-                        {weapon.data.weaponStats?.damageRanges.map((range, i) => (
-                            <TableRow className="align-top" key={i}>
-                                <TableCell className='text-gray max-md:text-xs'>
-                                    {safeValue(range.rangeStartMeters)}
-                                </TableCell>
-                                <TableCell className='text-gray max-md:text-xs'>
-                                    {safeValue(range.rangeEndMeters)}
-                                </TableCell>
-                                <TableCell className='text-gray max-md:text-xs'>
-                                    {safeValue(range.headDamage)}
-                                </TableCell>
-                                <TableCell className='text-gray max-md:text-xs'>
-                                    {safeValue(range.bodyDamage)}
-                                </TableCell>
-                                <TableCell className='text-gray max-md:text-xs'>
-                                    {safeValue(range.legDamage)}
-                                </TableCell>
+            {weapon.data.weaponStats?.damageRanges && weapon.data.weaponStats?.damageRanges.length > 0 && (
+                <div className='flex flex-col gap-3'>
+                    <h2 className='text-xl'>Damage Range</h2>
+                    <Table className="table-auto w-full">
+                        <TableHeader>
+                            <TableRow>
+                                <TableHead className="max-md:text-xs">Range Start</TableHead>
+                                <TableHead className="max-md:text-xs">Range End</TableHead>
+                                <TableHead className="max-md:text-xs">Head Damage</TableHead>
+                                <TableHead className="max-md:text-xs">Body Damage</TableHead>
+                                <TableHead className="max-md:text-xs">Leg Damage</TableHead>
                             </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </div>
+                        </TableHeader>
+
+                        <TableBody>
+                            {weapon.data.weaponStats?.damageRanges.map((range, i) => (
+                                <TableRow className="align-top" key={i}>
+                                    <TableCell className='text-gray max-md:text-xs'>
+                                        {safeValue(range.rangeStartMeters)}
+                                    </TableCell>
+                                    <TableCell className='text-gray max-md:text-xs'>
+                                        {safeValue(range.rangeEndMeters)}
+                                    </TableCell>
+                                    <TableCell className='text-gray max-md:text-xs'>
+                                        {safeValue(range.headDamage)}
+                                    </TableCell>
+                                    <TableCell className='text-gray max-md:text-xs'>
+                                        {safeValue(range.bodyDamage)}
+                                    </TableCell>
+                                    <TableCell className='text-gray max-md:text-xs'>
+                                        {safeValue(range.legDamage)}
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </div>
+            )}
 
             <div className='flex flex-col gap-3'>
                 <h2 className='text-xl'>Shop Data</h2>
@@ -214,7 +216,7 @@ const WeaponDetails = ({ id }: { id: string }) => {
 
                 <div className='grid grid-cols-2 md:grid-cols-3 w-full gap-5'>
                     {weapon.data.skins.slice(0, 9).map((skin) => (
-                        <WeaponSkinCard key={skin.uuid} skin={skin} weapon={weapon}/>
+                        <WeaponSkinCard key={skin.uuid} skin={skin} weapon={weapon} />
                     ))}
                 </div>
 

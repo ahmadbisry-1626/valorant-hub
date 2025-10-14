@@ -18,6 +18,7 @@ const Weapons = () => {
             ) : (
                 weapons?.data.map((weapon) => {
                     const sidearm = weapon.shopData?.categoryText === 'Sidearms'
+                    const melee = weapon.displayName === 'Melee'
 
                     return (
 
@@ -26,7 +27,7 @@ const Weapons = () => {
                                 <div
                                     className="absolute inset-0 z-0"
                                     style={{
-                                        background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120, 180, 255, 0.25), transparent 70%), #000000",
+                                        background: "radial-gradient(ellipse 80% 60% at 50% 0%, rgba(120, 180, 255, 0.25), transparent 70%), #1A1A1A",
                                     }}
                                 />
 
@@ -36,7 +37,7 @@ const Weapons = () => {
                                     width={300}
                                     height={300}
                                     sizes='100vw'
-                                    className={`object-cover ${sidearm && 'scale-70'} relative`}
+                                    className={`object-cover ${sidearm && 'scale-70'} relative ${melee && 'scale-70'}`}
                                 />
                             </div>
                             <div className='w-full px-4 md:px-5 py-2 flex flex-col gap-3 bg-white-light'>
