@@ -53,7 +53,7 @@ const Navbar = () => {
     }, [lastScrollY]);
 
     return (
-        <nav className={`fixed top-0 w-full z-50 max-md:bg-white ${isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'} ${!isHeroSection && 'border bg-white'} transition-all duration-300 ease-in-out`}>
+        <nav className={`fixed top-0 w-full z-50 max-md:bg-white ${isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'} ${!isHeroSection && 'shadow-sm bg-white'} transition-all duration-200 ease-in-out`}>
             <div className='flex items-center justify-between md:max-w-7xl mx-auto px-5 md:px-6 py-4'>
                 <Link href={'/'} className='text-xl md:text-2xl text-main'>ValorantHub</Link>
 
