@@ -5,11 +5,9 @@ import React, { useMemo, useState } from 'react'
 import SearchSkin from './SearchSkin'
 import WeaponSkinCard from './WeapinSkinCard'
 import PaginationControl from './PaginationControl'
-import { useDebounce } from 'use-debounce'
 import { notFound } from 'next/navigation'
 
 const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: number }) => {
-    const [pageNumber, setPageNumber] = useState(page)
     const { data: weapon, isLoading, isError } = useWeaponById(id)
     const weaponSkin = weapon?.data.skins ?? [];
 
@@ -23,16 +21,14 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
     const itemsPerPage = 21;
     const totalPages = Math.ceil(filteredSkins.length / itemsPerPage);
 
-    const [debouncedPage] = useDebounce(pageNumber, 500)
-
     const paginatedSkins = useMemo(() => {
-        const startIndex = (debouncedPage - 1) * itemsPerPage
+        const startIndex = (page - 1) * itemsPerPage
         const endIndex = startIndex + itemsPerPage
         return filteredSkins.slice(startIndex, endIndex)
-    }, [filteredSkins, debouncedPage])
+    }, [filteredSkins, page])
 
-    const hasNextPage = pageNumber < totalPages
-    const hasPrevPage = pageNumber > 1
+    const hasNextPage = page < totalPages
+    const hasPrevPage = page > 1
 
     if (isLoading) return (
         <div className='w-full min-h-screen flex items-center justify-center'>
@@ -51,7 +47,7 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
             <div className='flex items-center max-sm:flex-col md:justify-between w-full gap-3'>
                 <h1 className='text-3xl md:text-4xl md:w-full' id="hero">{weapon.data.displayName} Skins</h1>
 
-                <SearchSkin query={query} setPageNumber={setPageNumber} />
+                <SearchSkin query={query} />
             </div>
 
             {paginatedSkins.length === 0 && !isLoading && !isError && (
@@ -75,11 +71,10 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
                     {paginatedSkins.length > 0 && (
                         totalPages > 1 && (
                             <PaginationControl
-                                page={pageNumber}
+                                page={page}
                                 totalPages={totalPages}
                                 hasNextPage={hasNextPage}
                                 hasPrevPage={hasPrevPage}
-                                setPageNumber={setPageNumber}
                             />
                         )
                     )}

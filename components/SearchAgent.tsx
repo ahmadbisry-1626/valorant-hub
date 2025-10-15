@@ -4,8 +4,10 @@ import React, { useState } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { usePathname, useRouter } from 'next/navigation'
+import { usePagination } from '@/hook/store'
 
 const SearchAgent = ({ query }: { query: string }) => {
+    const { setPageParam} = usePagination()
     const [search, setSearch] = useState(query || '')
     const router = useRouter()
     const pathname = usePathname()
@@ -16,6 +18,7 @@ const SearchAgent = ({ query }: { query: string }) => {
         params.delete('role')
         if (search) {
             router.replace(`${pathname}?${params.toString()}`)
+            params.set('page', '1')
         }
     }
 

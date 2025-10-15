@@ -9,8 +9,9 @@ import { TbCopy } from "react-icons/tb";
 import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { toast } from 'sonner'
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
+import PaginationControl from './PaginationControl'
 
-const Agents = ({ query, role }: { query: string, role: string }) => {
+const Agents = ({ query, role, page }: { query: string, role: string, page: number }) => {
     const { data: agents, isLoading, isError } = useAgent();
     const [isLiked, setIsLiked] = useState<Record<string, boolean>>({})
     const [isSaved, setisSaved] = useState<Record<string, boolean>>({})
@@ -40,22 +41,34 @@ const Agents = ({ query, role }: { query: string, role: string }) => {
         });
     }, [agents, query, role]);
 
+    const itemsPerPage = 3;
+    const totalPages = Math.ceil(filteredAgents.length / itemsPerPage);
+
+    const paginatedAgents = useMemo(() => {
+        const startIndex = (page - 1) * itemsPerPage
+        const endIndex = startIndex + itemsPerPage
+        return filteredAgents.slice(startIndex, endIndex)
+    }, [filteredAgents, page])
+
+    const hasNextPage = page < totalPages
+    const hasPrevPage = page > 1
+
     return (
-        <div className='w-full md:max-w-7xl mx-auto px-5 md:px-6'>
+        <div className='w-full md:max-w-7xl mx-auto px-5 md:px-6 flex flex-col'>
             {isLoading && (
                 <div className='w-full h-[300px] md:h-[400px] flex items-center justify-center'>
                     <div className="loader" />
                 </div>
             )}
 
-            {filteredAgents.length === 0 && !isLoading && (
+            {paginatedAgents.length === 0 && !isLoading && (
                 <div className='w-full h-[300px] md:h-[400px] flex items-center justify-center bg-white-light rounded-[12px]'>
                     <p className='text-gray md:text-xl text-md'>No agents found</p>
                 </div>
             )}
 
-            <div className='grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5'>
-                {filteredAgents.map((agent) => (
+            <div className='grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 mb-5'>
+                {paginatedAgents.map((agent) => (
                     <div key={agent.uuid} className='flex flex-col overflow-hidden rounded-[12px] bg-white-light shadow-sm'>
                         <Link href={`/agents/${agent.uuid}`} className='px-5 py-2 flex items-center gap-3'>
                             <div className='flex items-center justify-center rounded-full bg-white-lighter overflow-hidden'>
@@ -142,6 +155,17 @@ const Agents = ({ query, role }: { query: string, role: string }) => {
                     </div>
                 ))}
             </div>
+
+            {paginatedAgents.length > 0 && (
+                totalPages > 1 && (
+                    <PaginationControl
+                        page={page}
+                        totalPages={totalPages}
+                        hasNextPage={hasNextPage}
+                        hasPrevPage={hasPrevPage}
+                    />
+                )
+            )}
         </div>
     )
 }

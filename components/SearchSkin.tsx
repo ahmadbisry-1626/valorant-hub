@@ -5,19 +5,25 @@ import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { usePathname, useRouter } from 'next/navigation'
 
-const SearchSkin = ({ query, setPageNumber }: { query: string, setPageNumber: (page: number) => void }) => {
+const SearchSkin = ({ query }: { query: string }) => {
     const [search, setSearch] = useState(query || '')
     const router = useRouter()
     const pathname = usePathname()
 
     const handleSubmit = () => {
         const params = new URLSearchParams(window.location.search)
-        params.set('query', search)
+
         if (search) {
+            params.set('query', search)
+            params.delete('page')
             router.replace(`${pathname}?${params.toString()}`)
-            setPageNumber(1)
+        } else {
+            params.delete('query')
+            params.set('page', '1')
+            router.replace(`${pathname}?${params.toString()}`)
         }
     }
+
 
     return (
         <div className='md:w-[700px] w-full h-[54px] bg-white-light rounded-[12px] pl-2 flex items-center overflow-hidden'>
@@ -34,11 +40,9 @@ const SearchSkin = ({ query, setPageNumber }: { query: string, setPageNumber: (p
                 onClick={() => {
                     if (query && search === '') {
                         setSearch('')
-                        setPageNumber(1)
                         router.replace(`${pathname}`)
                     } else if (query === search) {
                         setSearch('')
-                        setPageNumber(1)
                         router.replace(`${pathname}`)
                     } else {
                         handleSubmit()

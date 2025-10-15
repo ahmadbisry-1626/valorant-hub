@@ -15,10 +15,9 @@ interface PaginationProps {
     totalPages: number,
     hasNextPage: boolean,
     hasPrevPage: boolean,
-    setPageNumber: (page: number) => void
 }
 
-const PaginationControl = ({ page, totalPages, hasNextPage, hasPrevPage, setPageNumber }: PaginationProps) => {
+const PaginationControl = ({ page, totalPages, hasNextPage, hasPrevPage }: PaginationProps) => {
     const router = useRouter()
     const pathname = usePathname()
 
@@ -43,8 +42,6 @@ const PaginationControl = ({ page, totalPages, hasNextPage, hasPrevPage, setPage
     const pages = getPages()
 
     const onPageChange = (newPage: number) => {
-        setPageNumber(newPage)
-
         const params = new URLSearchParams(window.location.search)
         params.set('page', newPage.toString())
         router.push(`${pathname}?${params.toString()}`)

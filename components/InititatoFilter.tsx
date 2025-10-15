@@ -15,13 +15,15 @@ const RoleFilter = ({ role }: { role: string }) => {
 
     const handleRoleChange = (newRole: string) => {
         const params = new URLSearchParams(window.location.search)
+
         if (newRole === role) {
             params.delete('role')
-            router.replace(`${pathname}?${params.toString()}`)
         } else {
             params.set('role', newRole)
-            router.replace(`${pathname}?${params.toString()}`)
         }
+
+        params.delete('page')
+        router.replace(`${pathname}?${params.toString()}`)
     }
 
     return (

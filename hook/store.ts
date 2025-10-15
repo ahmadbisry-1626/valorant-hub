@@ -10,6 +10,16 @@ interface MobileMenuProps {
     setIsOpen: (status: boolean) => void
 }
 
+interface PaginationProps {
+    pageParam: number
+    setPageParam: (page: number) => void
+}
+
+export const usePagination = create<PaginationProps>((set) => ({
+    pageParam: 1,
+    setPageParam: (page) => set({ pageParam: page })
+}))
+
 export const useMobileMenu = create<MobileMenuProps>((set) => ({
     isOpen: false,
     setIsOpen: (isOpen) => set({ isOpen })
