@@ -41,7 +41,7 @@ const Agents = ({ query, role, page }: { query: string, role: string, page: numb
         });
     }, [agents, query, role]);
 
-    const itemsPerPage = 3;
+    const itemsPerPage = 18;
     const totalPages = Math.ceil(filteredAgents.length / itemsPerPage);
 
     const paginatedAgents = useMemo(() => {

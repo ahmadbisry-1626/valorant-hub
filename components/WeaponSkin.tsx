@@ -18,7 +18,7 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
         );
     }, [weaponSkin, query]);
 
-    const itemsPerPage = 21;
+    const itemsPerPage = 18;
     const totalPages = Math.ceil(filteredSkins.length / itemsPerPage);
 
     const paginatedSkins = useMemo(() => {
