@@ -73,13 +73,15 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
                     </div>
 
                     {paginatedSkins.length > 0 && (
-                        <PaginationControl
-                            page={pageNumber}
-                            totalPages={totalPages}
-                            hasNextPage={hasNextPage}
-                            hasPrevPage={hasPrevPage}
-                            setPageNumber={setPageNumber}
-                        />
+                        totalPages > 1 && (
+                            <PaginationControl
+                                page={pageNumber}
+                                totalPages={totalPages}
+                                hasNextPage={hasNextPage}
+                                hasPrevPage={hasPrevPage}
+                                setPageNumber={setPageNumber}
+                            />
+                        )
                     )}
                 </>
             )}
