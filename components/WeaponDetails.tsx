@@ -15,15 +15,27 @@ import { cleanEnum } from '@/lib/utils';
 import { safeValue } from '../lib/utils';
 import Link from 'next/link';
 import WeaponSkinCard from './WeapinSkinCard';
+import { notFound } from 'next/navigation';
 
 const WeaponDetails = ({ id }: { id: string }) => {
     const { data: weapon, isLoading, isError } = useWeaponById(id)
     const sidearm = weapon?.data?.shopData?.categoryText === 'Sidearms'
-    if (!weapon || !weapon.data && !isLoading) return
-    const melee = weapon.data.displayName === 'Melee'
+    const melee = weapon?.data.displayName === 'Melee'
+
+    if (isLoading) return (
+        <div className='w-full min-h-screen flex items-center justify-center'>
+            <div className="loader" />
+        </div>
+    )
+    if (isError) return notFound()
+    if (!weapon || !weapon.data) return (
+        <div className='w-full min-h-screen flex items-center justify-center'>
+            <p className='text-gray md:text-xl text-md'>No data found</p>
+        </div>
+    )
 
     return (
-        <div className='w-full flex flex-col gap-5 md:gap-7 md:max-w-7xl mx-auto px-5 md:px-6 relative'>
+        <div className='w-full flex flex-col gap-5 md:gap-7 md:max-w-7xl mx-auto px-5 md:px-6 relative py-20'>
             <div className='absolute top-0' id='hero' />
             <div className='w-full h-[150px] md:h-[200px] bg-black flex items-center justify-center overflow-hidden relative rounded-[12px]'>
                 <div

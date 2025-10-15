@@ -4,9 +4,7 @@ import SearchAgent from '@/components/SearchAgent'
 import React from 'react'
 
 const page = async ({ searchParams }: { searchParams: Promise<{ query?: string; role?: string }> }) => {
-    const params = await searchParams;
-    const query = params?.query ?? '';
-    const role = params?.role ?? '';
+    const { query = '', role = '' } = await searchParams;
 
     return (
         <div className='w-full relative'>

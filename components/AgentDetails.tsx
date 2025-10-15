@@ -14,11 +14,22 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { notFound } from 'next/navigation'
 
 const AgentDetails = ({ id }: { id: string }) => {
     const { data: agent, isLoading, isError } = useAgentById(id)
 
-    if (!agent || !agent && !isLoading) return
+    if (isLoading) return (
+            <div className='w-full min-h-screen flex items-center justify-center'>
+                <div className="loader" />
+            </div>
+        )
+        if (isError) return notFound()
+        if (!agent || !agent.data) return (
+            <div className='w-full min-h-screen flex items-center justify-center'>
+                <p className='text-gray md:text-xl text-md'>No data found</p>
+            </div>
+        )
 
     return (
         <div className='w-full md:max-w-7xl mx-auto px-5 md:px-6 flex relative lg:items-start max-lg:items-center max-lg:justify-center gap-5 lg:gap-8 py-20 lg:py-32 max-lg:flex-col'>
