@@ -4,21 +4,24 @@ import React, { useState } from 'react'
 import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { usePathname, useRouter } from 'next/navigation'
-import { usePagination } from '@/hook/store'
 
 const SearchAgent = ({ query }: { query: string }) => {
-    const { setPageParam} = usePagination()
     const [search, setSearch] = useState(query || '')
     const router = useRouter()
     const pathname = usePathname()
 
     const handleSubmit = () => {
         const params = new URLSearchParams(window.location.search)
-        params.set('query', search)
-        params.delete('role')
+
         if (search) {
+            params.set('query', search)
+            params.delete('page')
+            params.delete('role')
             router.replace(`${pathname}?${params.toString()}`)
-            params.set('page', '1')
+        } else {
+            params.delete('query')
+            params.delete('page')
+            router.replace(`${pathname}?${params.toString()}`)
         }
     }
 
