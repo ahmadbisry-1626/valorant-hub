@@ -32,6 +32,11 @@ const SearchAgent = ({ query }: { query: string }) => {
                 placeholder='Search agent...'
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        handleSubmit()
+                    }
+                }}
             />
             <Button
                 type='submit'

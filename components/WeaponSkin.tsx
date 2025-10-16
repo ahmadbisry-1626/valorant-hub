@@ -14,7 +14,7 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
     const filteredSkins = useMemo(() => {
         const search = query.toLowerCase();
         return weaponSkin.filter((skin) =>
-            skin.displayName.toLowerCase().includes(search)
+            skin.displayName.toLowerCase().includes(search) && skin.displayName !== `Standard ${weapon?.data.displayName}` && skin.displayName !== 'Random Favorite Skin'
         );
     }, [weaponSkin, query]);
 

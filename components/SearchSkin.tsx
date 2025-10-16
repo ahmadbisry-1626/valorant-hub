@@ -32,6 +32,11 @@ const SearchSkin = ({ query }: { query: string }) => {
                 placeholder='Search skin...'
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        handleSubmit()
+                    }
+                }}
             />
             <Button
                 type='submit'
