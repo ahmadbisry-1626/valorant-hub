@@ -40,8 +40,6 @@ const WeaponSkinDetails = ({ skin, weapon }: { skin: WeaponSkin, weapon: Weapons
         displayType = "video"; // Rule 5: at least one video + few chromas → show video
     }
 
-
-
     return (
         <Dialog>
             <DialogTrigger className='bg-white-light text-black rounded-t-none h-[45px] md:h-[54px] hover:bg-black hover:text-white transition-all duration-300 ease-in-out cursor-pointer max-md:!text-xs'>
