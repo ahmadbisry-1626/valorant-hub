@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { Button } from './ui/button'
 import { WeaponSkin, WeaponsResponseById } from '@/interface'
+import WeaponSkinDetails from './WeaponSkinDetails'
 
 const WeaponSkinCard = ({ skin, weapon }: { skin: WeaponSkin, weapon: WeaponsResponseById }) => {
     const sidearm = weapon.data.shopData?.categoryText === 'Sidearms'
@@ -32,7 +33,7 @@ const WeaponSkinCard = ({ skin, weapon }: { skin: WeaponSkin, weapon: WeaponsRes
                 />
 
                 <Image
-                    src={skin.displayIcon || weapon.data.killStreamIcon}
+                    src={skin.displayIcon || skin.chromas[0]?.fullRender || weapon.data.killStreamIcon}
                     alt={skin.displayName}
                     width={300}
                     height={300}
@@ -40,9 +41,7 @@ const WeaponSkinCard = ({ skin, weapon }: { skin: WeaponSkin, weapon: WeaponsRes
                     className={`object-cover object-center md:w-[300px] h-auto w-[150px] relative ${sidearm && 'scale-70'} ${melee && 'scale-60'}`}
                 />
             </div>
-            <Button className='bg-white-light text-black rounded-t-none h-[45px] md:h-[54px] hover:bg-black hover:text-white transition-all duration-300 ease-in-out cursor-pointer max-md:!text-xs'>
-                View
-            </Button>
+            <WeaponSkinDetails skin={skin} weapon={weapon} />
         </div>
     )
 }
