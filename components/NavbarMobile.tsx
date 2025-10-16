@@ -1,6 +1,6 @@
 "use client"
 
-import { useMobileMenu } from '@/hook/store'
+import { useDropDownMobile, useMobileMenu } from '@/hook/store'
 import React, { useState } from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { Separator } from './ui/separator';
@@ -10,10 +10,11 @@ import { Input } from './ui/input';
 import { navLinks } from '@/constants';
 import { BiSolidDownArrow } from 'react-icons/bi';
 import { usePathname } from 'next/navigation';
+import WeaponSkinDropdownMobile from './WeaponSkinDropdownMobile';
 
 const NavbarMobile = () => {
     const { isOpen, setIsOpen } = useMobileMenu()
-    const [isDropdownOpen, setIsDropDownOpen] = useState('')
+    const { isDropDownOpen, setIsDropDownOpen } = useDropDownMobile()
     const pathname = usePathname()
 
     return (
@@ -52,7 +53,7 @@ const NavbarMobile = () => {
                             </Link>
 
                             {navLinks.map((link) => {
-                                const isActive = isDropdownOpen === link.name
+                                const isActive = isDropDownOpen === link.name
 
                                 return (
                                     <div className='flex flex-col gap-2' key={link.name}>
@@ -72,6 +73,7 @@ const NavbarMobile = () => {
 
                                         {isActive && (
                                             <div className='flex flex-col gap-2'>
+                                                <WeaponSkinDropdownMobile />
                                                 {link.dropdown.map((item) => {
                                                     const isItemActive = pathname === item.path
 

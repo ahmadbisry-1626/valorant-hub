@@ -180,7 +180,7 @@
 
     /* HTML: <div class="loader"></div> */
     .loader {
-        width: 80px;
+        width: 60px;
         aspect-ratio: 1.154;
         position: relative;
         background: conic-gradient(from 120deg at 50% 64%, #0000, #FF4655 1deg 120deg, #0000 121deg);

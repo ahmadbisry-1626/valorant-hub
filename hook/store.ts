@@ -29,3 +29,8 @@ export const useDropDown = create<DropDownProps>((set) => ({
     isDropDownOpen: '',
     setIsDropDownOpen: (isDropDownOpen) => set({ isDropDownOpen })
 }))
+
+export const useDropDownMobile = create<DropDownProps>((set) => ({
+    isDropDownOpen: '',
+    setIsDropDownOpen: (isDropDownOpen) => set({ isDropDownOpen })
+}))
