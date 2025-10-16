@@ -28,14 +28,14 @@ const WeaponSkinDetails = ({ skin, weapon }: { skin: WeaponSkin, weapon: Weapons
     let displayType: "video" | "chroma" | "none" = "none";
 
     // PRIORITY RULES
-    if (streamedCount > 2) {
-        displayType = "video"; // Rule 1: show streamed videos if more than 2
+    if (streamedCount >= 2) {
+        displayType = "video"; // Rule 1: always show video if >= 2 streamed videos
     } else if (streamedCount === 0 && chromaCount >= 2) {
-        displayType = "chroma"; // Rule 2: no streamedVideo → show chromas
-    } else if (streamedCount <= 2 && streamedCount > 0 && chromaCount > 2) {
-        displayType = "chroma"; // Rule 3: few videos but many chromas → chromas
+        displayType = "chroma"; // Rule 2: no streamed video → show chromas
+    } else if (streamedCount > 0 && streamedCount < 2 && chromaCount > 2) {
+        displayType = "chroma"; // Rule 3: few videos but many chromas → show chromas
     } else if (streamedCount === 0 && chromaCount < 2) {
-        displayType = "none"; // Rule 4 (updated): no video + <2 chromas → not found
+        displayType = "none"; // Rule 4: no video + few chromas → not found
     } else if (streamedCount >= 1 && chromaCount <= 2) {
         displayType = "video"; // Rule 5: at least one video + few chromas → show video
     }
