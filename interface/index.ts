@@ -189,3 +189,35 @@ export interface WeaponLevel {
   streamedVideo: string | null;
   assetPath: string;
 }
+
+export interface MapsResponse {
+  status: number;
+  data: ValorantMap[];
+}
+
+export interface ValorantMap {
+  uuid: string;
+  displayName: string;
+  narrativeDescription: string | null;
+  tacticalDescription: string | null;
+  coordinates: string | null;
+  displayIcon: string | null;
+  listViewIcon: string | null;
+  splash: string;
+  assetPath: string;
+  mapUrl: string;
+  xMultiplier: number;
+  yMultiplier: number;
+  xScalarToAdd: number;
+  yScalarToAdd: number;
+  callouts: MapCallout[] | null;
+}
+
+export interface MapCallout {
+  regionName: string;
+  superRegionName: string;
+  location: {
+    x: number;
+    y: number;
+  };
+}
