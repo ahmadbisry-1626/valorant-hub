@@ -47,7 +47,7 @@ const MapDetails = ({ id }: { id: string }) => {
                 </div>
             </div>
 
-            <div className='flex flex-col gap-5 w-full'>
+            <div className='flex flex-col gap-3 w-full'>
                 <div className='lg:flex flex-col hidden'>
                     <span className='text-main tetx-lg' id="hero">{map.data.coordinates ? map.data.coordinates : 'Unknown coordinates'}</span>
                     <h1 className='text-4xl'>{map.data.displayName}</h1>
@@ -55,7 +55,9 @@ const MapDetails = ({ id }: { id: string }) => {
 
                 <div className="flex flex-col gap-1 mt-2">
                     <h2 className="text-xl">Callouts</h2>
-                    <Table className="table-auto w-full">
+
+                    {map.data.callouts && map.data.callouts?.length > 0 ? (
+                        <Table className="table-auto w-full">
                         <TableHeader>
                             <TableRow>
                                 <TableHead className="w-[50px] md:w-[150px] max-md:text-xs">regionName</TableHead>
@@ -86,6 +88,12 @@ const MapDetails = ({ id }: { id: string }) => {
                             ))}
                         </TableBody>
                     </Table>
+                    ): (
+                        <div className='w-full rounded-[12px] h-[300px] bg-white-light flex items-center justify-center'>
+                            <p className='text-gray md:text-xl text-md'>No data found</p>
+                        </div>
+                    )}
+
                 </div>
             </div>
         </div>
