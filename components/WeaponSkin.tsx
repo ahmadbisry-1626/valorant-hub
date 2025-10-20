@@ -2,10 +2,10 @@
 
 import { useWeaponById } from '@/hook/queries'
 import React, { useMemo, useState } from 'react'
-import SearchSkin from './SearchSkin'
 import WeaponSkinCard from './WeapinSkinCard'
 import PaginationControl from './PaginationControl'
 import { notFound } from 'next/navigation'
+import SearchQuery from './SearchSkin'
 
 const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: number }) => {
     const { data: weapon, isLoading, isError } = useWeaponById(id)
@@ -24,6 +24,7 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
     const paginatedSkins = useMemo(() => {
         const startIndex = (page - 1) * itemsPerPage
         const endIndex = startIndex + itemsPerPage
+
         return filteredSkins.slice(startIndex, endIndex)
     }, [filteredSkins, page])
 
@@ -47,7 +48,7 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
             <div className='flex items-center max-md:flex-col md:justify-between w-full gap-3'>
                 <h1 className='text-3xl md:text-4xl md:w-full' id="hero">{weapon.data.displayName} Skins</h1>
 
-                <SearchSkin query={query} />
+                <SearchQuery query={query} placeholder='Search skin...' />
             </div>
 
             {paginatedSkins.length === 0 && !isLoading && !isError && (
@@ -56,29 +57,21 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
                 </div>
             )}
 
-            {isLoading ? (
-                <div className='w-full h-[300px] md:h-[400px] flex items-center justify-center'>
-                    <div className="loader" />
-                </div>
-            ) : (
-                <>
-                    <div className='grid grid-cols-2 md:grid-cols-3 w-full gap-5'>
-                        {paginatedSkins.map((skin) => (
-                            <WeaponSkinCard key={skin.uuid} skin={skin} weapon={weapon} />
-                        ))}
-                    </div>
+            <div className='grid grid-cols-2 md:grid-cols-3 w-full gap-5'>
+                {paginatedSkins.map((skin) => (
+                    <WeaponSkinCard key={skin.uuid} skin={skin} weapon={weapon} />
+                ))}
+            </div>
 
-                    {paginatedSkins.length > 0 && (
-                        totalPages > 1 && (
-                            <PaginationControl
-                                page={page}
-                                totalPages={totalPages}
-                                hasNextPage={hasNextPage}
-                                hasPrevPage={hasPrevPage}
-                            />
-                        )
-                    )}
-                </>
+            {paginatedSkins.length > 0 && (
+                totalPages > 1 && (
+                    <PaginationControl
+                        page={page}
+                        totalPages={totalPages}
+                        hasNextPage={hasNextPage}
+                        hasPrevPage={hasPrevPage}
+                    />
+                )
             )}
         </div>
     )

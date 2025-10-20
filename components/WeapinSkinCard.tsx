@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React from 'react'
-import { Button } from './ui/button'
 import { WeaponSkin, WeaponsResponseById } from '@/interface'
 import WeaponSkinDetails from './WeaponSkinDetails'
 

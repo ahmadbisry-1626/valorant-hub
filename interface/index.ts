@@ -195,6 +195,11 @@ export interface MapsResponse {
   data: ValorantMap[];
 }
 
+export interface MapResponseById {
+  status: number;
+  data: ValorantMap;
+}
+
 export interface ValorantMap {
   uuid: string;
   displayName: string;
@@ -203,6 +208,7 @@ export interface ValorantMap {
   coordinates: string | null;
   displayIcon: string | null;
   listViewIcon: string | null;
+  stylizedBackgroundImage: string;
   splash: string;
   assetPath: string;
   mapUrl: string;

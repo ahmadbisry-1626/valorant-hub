@@ -5,7 +5,7 @@ import { Input } from './ui/input'
 import { Button } from './ui/button'
 import { usePathname, useRouter } from 'next/navigation'
 
-const SearchSkin = ({ query }: { query: string }) => {
+const SearchQuery = ({ query, placeholder }: { query: string, placeholder: string }) => {
     const [search, setSearch] = useState(query || '')
     const router = useRouter()
     const pathname = usePathname()
@@ -29,7 +29,7 @@ const SearchSkin = ({ query }: { query: string }) => {
         <div className='md:w-[700px] w-full h-[54px] bg-white-light rounded-[12px] pl-2 flex items-center overflow-hidden'>
             <Input
                 className='size-full input'
-                placeholder='Search skin...'
+                placeholder={placeholder}
                 onChange={(e) => setSearch(e.target.value)}
                 value={search}
                 onKeyDown={(e) => {
@@ -60,4 +60,4 @@ const SearchSkin = ({ query }: { query: string }) => {
     )
 }
 
-export default SearchSkin
+export default SearchQuery

@@ -1,5 +1,5 @@
-import { AgentResponse, AgentResponseById, GearResponse, MapsResponse, WeaponsResponse, WeaponsResponseById } from "@/interface"
-import { fetchAgentById, fetchAgents, fetchGear, fetchMaps, fetchWeaponById, fetchWeapons } from "@/lib/actions"
+import { AgentResponse, AgentResponseById, GearResponse, MapResponseById, MapsResponse, WeaponsResponse, WeaponsResponseById } from "@/interface"
+import { fetchAgentById, fetchAgents, fetchGear, fetchMapById, fetchMaps, fetchWeaponById, fetchWeapons } from "@/lib/actions"
 import { useQuery } from "@tanstack/react-query"
 
 
@@ -52,6 +52,15 @@ export const useMap = () => {
     return useQuery<MapsResponse, Error>({
         queryKey: ['maps'],
         queryFn: fetchMaps,
+        staleTime: 5 * 60 * 1000,
+        retry: 1
+    })
+}
+
+export const useMapById = (id: string) => {
+    return useQuery<MapResponseById, Error>({
+        queryKey: ['maps', id],
+        queryFn: () => fetchMapById(id),
         staleTime: 5 * 60 * 1000,
         retry: 1
     })
