@@ -58,37 +58,38 @@ const MapDetails = ({ id }: { id: string }) => {
 
                     {map.data.callouts && map.data.callouts?.length > 0 ? (
                         <Table className="table-auto w-full">
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead className="w-[50px] md:w-[150px] max-md:text-xs">regionName</TableHead>
-                                <TableHead className="w-[80px] md:w-[200px] max-md:text-xs">superRegion</TableHead>
-                                <TableHead className='max-md:text-xs md:w-[200px]'>Location</TableHead>
-                                <TableHead className="max-md:text-xs md:w-[200px]">scale3D</TableHead>
-                            </TableRow>
-                        </TableHeader>
-
-                        <TableBody>
-                            {map.data.callouts?.map((callout, i) => (
-                                <TableRow key={i} className="align-top">
-                                    <TableCell className='text-gray max-md:text-xs'>{callout.regionName}</TableCell>
-                                    <TableCell className='text-gray max-md:text-xs whitespace-normal break-words leading-relaxed'>
-                                        {callout.superRegionName}
-                                    </TableCell>
-                                    <TableCell className="whitespace-normal break-words leading-relaxed text-gray max-md:text-xs">
-                                        {callout.location
-                                            ? <span>x: {callout.location.x} <br /> y: {callout.location.y} <br /> z: {callout.location.z}</span>
-                                            : 'Unknown'}
-                                    </TableCell>
-                                    <TableCell className="whitespace-normal break-words leading-relaxed text-gray max-md:text-xs">
-                                        {callout.scale3D
-                                            ? <span>x: {callout.scale3D.x} <br /> y: {callout.scale3D.y} <br /> z: {callout.scale3D.z}</span>
-                                            : 'Unknown'}
-                                    </TableCell>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead className="w-[50px] md:w-[150px] max-md:text-xs">Region</TableHead>
+                                    <TableHead className="w-[80px] md:w-[200px] max-md:text-xs">Area</TableHead>
+                                    <TableHead className="max-md:text-xs md:w-[200px]">Coordinates (X | Y | Z)</TableHead>
+                                    <TableHead className="max-md:text-xs md:w-[200px]">Scale (X | Y | Z)</TableHead>
                                 </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                    ): (
+
+                            </TableHeader>
+
+                            <TableBody>
+                                {map.data.callouts?.map((callout, i) => (
+                                    <TableRow key={i} className="align-top">
+                                        <TableCell className='text-gray max-md:text-xs'>{callout.regionName}</TableCell>
+                                        <TableCell className='text-gray max-md:text-xs whitespace-normal break-words leading-relaxed'>
+                                            {callout.superRegionName}
+                                        </TableCell>
+                                        <TableCell className="whitespace-normal break-words leading-relaxed text-gray max-md:text-xs">
+                                            {callout.location
+                                                ? <span>x: {callout.location.x} <br /> y: {callout.location.y} <br /> z: {callout.location.z}</span>
+                                                : 'Unknown'}
+                                        </TableCell>
+                                        <TableCell className="whitespace-normal break-words leading-relaxed text-gray max-md:text-xs">
+                                            {callout.scale3D
+                                                ? <span>x: {callout.scale3D.x} <br /> y: {callout.scale3D.y} <br /> z: {callout.scale3D.z}</span>
+                                                : 'Unknown'}
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    ) : (
                         <div className='w-full rounded-[12px] h-[300px] bg-white-light flex items-center justify-center'>
                             <p className='text-gray md:text-xl text-md'>No data found</p>
                         </div>
