@@ -66,7 +66,7 @@ const AgentDetails = ({ id }: { id: string }) => {
                 </div>
 
                 <div className='flex flex-col gap-3 lg:gap-1'>
-                    <div className='flex max-lg:items-center gap-2 md:gap-3 flex-wrap max-lg:justify-center'>
+                    <div className='flex items-center gap-2 md:gap-3 flex-wrap max-lg:justify-center'>
                         <span className='text-sm md:text-base'>{agent.data.role?.displayName}</span>
                         <span className='md:text-xl text-lg'>|</span>
                         <span className='text-sm md:text-base'>
