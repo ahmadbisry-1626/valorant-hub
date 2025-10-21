@@ -235,3 +235,27 @@ export interface MapCallout {
         z: number;
     };
 }
+
+export interface BundlesResponse {
+  status: number;
+  data: ValorantBundle[];
+}
+
+export interface BundlesResponseById {
+    status: number;
+    data: ValorantBundle;
+}
+
+export interface ValorantBundle {
+  uuid: string;
+  displayName: string;
+  displayNameSubText: string | null;
+  description: string | null;
+  extraDescription: string | null;
+  promoDescription: string | null;
+  useAdditionalContext: boolean;
+  displayIcon: string | null;
+  displayIcon2: string;
+  verticalPromoImage: string | null;
+  assetPath: string;
+}

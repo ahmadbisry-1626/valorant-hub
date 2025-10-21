@@ -1,5 +1,25 @@
-import { AgentResponse, AgentResponseById, GearResponse, MapResponseById, MapsResponse, WeaponsResponse, WeaponsResponseById } from "@/interface"
-import { fetchAgentById, fetchAgents, fetchGear, fetchMapById, fetchMaps, fetchWeaponById, fetchWeapons } from "@/lib/actions"
+import {
+    AgentResponse,
+    AgentResponseById,
+    BundlesResponse,
+    BundlesResponseById,
+    GearResponse,
+    MapResponseById,
+    MapsResponse,
+    WeaponsResponse,
+    WeaponsResponseById
+} from "@/interface"
+import {
+    fetchAgentById,
+    fetchAgents,
+    fetchBundleById,
+    fetchBundles,
+    fetchGear,
+    fetchMapById,
+    fetchMaps,
+    fetchWeaponById,
+    fetchWeapons
+} from "@/lib/actions"
 import { useQuery } from "@tanstack/react-query"
 
 
@@ -61,6 +81,24 @@ export const useMapById = (id: string) => {
     return useQuery<MapResponseById, Error>({
         queryKey: ['maps', id],
         queryFn: () => fetchMapById(id),
+        staleTime: 5 * 60 * 1000,
+        retry: 1
+    })
+}
+
+export const useBundle = () => {
+    return useQuery<BundlesResponse, Error>({
+        queryKey: ['bundles'],
+        queryFn: fetchBundles,
+        staleTime: 5 * 60 * 1000,
+        retry: 1
+    })
+}
+
+export const useBundleById = (id: string) => {
+    return useQuery<BundlesResponseById, Error>({
+        queryKey: ['bundles', id],
+        queryFn: () => fetchBundleById(id),
         staleTime: 5 * 60 * 1000,
         retry: 1
     })
