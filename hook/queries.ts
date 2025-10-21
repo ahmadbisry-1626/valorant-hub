@@ -7,6 +7,7 @@ import {
     GearResponse,
     MapResponseById,
     MapsResponse,
+    SpraysResponse,
     WeaponsResponse,
     WeaponsResponseById
 } from "@/interface"
@@ -19,6 +20,7 @@ import {
     fetchGear,
     fetchMapById,
     fetchMaps,
+    fetchSprays,
     fetchWeaponById,
     fetchWeapons
 } from "@/lib/actions"
@@ -101,6 +103,15 @@ export const useBuddies = () => {
     return useQuery<BuddiesResponse, Error>({
         queryKey: ['buddies'],
         queryFn: fetchBuddies,
+        staleTime: 5 * 60 * 1000,
+        retry: 1
+    })
+}
+
+export const useSprays = () => {
+    return useQuery<SpraysResponse, Error>({
+        queryKey: ['sprays'],
+        queryFn: fetchSprays,
         staleTime: 5 * 60 * 1000,
         retry: 1
     })

@@ -266,3 +266,18 @@ export interface ValorantBuddy {
     displayIcon: string | null;
     assetPath: string;
 }
+
+export interface SpraysResponse {
+    status: number;
+    data: ValorantSpray[]
+}
+
+export interface ValorantSpray {
+    uuid: string
+    displayName: string;
+    displayIcon: string | null;
+    fullIcon: string | null;
+    fullTransparentIcon: string | null;
+    animationPng: string | null;
+    animationGif: string | null;
+}
