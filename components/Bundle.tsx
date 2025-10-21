@@ -44,7 +44,7 @@ const Bundle = ({ query, page }: { query: string, page: number }) => {
     return (
         <div className='flex flex-col gap-5 md:gap-10 w-full py-20 md:py-32'>
             <div className='flex items-center md:justify-between max-md:flex-col max-md:gap-5 w-full'>
-                <h1 className='text-3xl md:text-4xl md:w-full' id="hero">Bundle Archive</h1>
+                <h1 className='text-2xl md:text-3xl lg:text-4xl md:w-full' id="hero">Bundle Archive</h1>
                 <SearchQuery query={query} placeholder='Search bundle...' />
             </div>
 

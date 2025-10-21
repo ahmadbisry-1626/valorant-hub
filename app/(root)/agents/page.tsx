@@ -10,7 +10,7 @@ const page = async ({ searchParams }: { searchParams: Promise<{ query?: string; 
         <div className='w-full relative'>
             <div className='flex flex-col gap-5 md:gap-10 pt-10 md:pt-20 pb-20'>
                 <div className='w-full flex flex-col items-center justify-center gap-5'>
-                    <h1 className='text-3xl md:text-4xl mt-10' id="hero">Agents</h1>
+                    <h1 className='text-2xl md:text-3xl lg:text-4xl mt-10' id="hero">Agents</h1>
                     <div className='w-full max-md:max-w-7xl md:px-6 px-5 mx-auto flex items-center justify-center'>
                         <SearchAgent query={query} />
                     </div>

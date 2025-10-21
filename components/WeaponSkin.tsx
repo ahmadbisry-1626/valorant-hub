@@ -46,7 +46,7 @@ const WeaponSkin = ({ id, query, page }: { id: string, query: string, page: numb
     return (
         <div className='w-full flex items-center justify-center md:max-w-7xl mx-auto px-5 md:px-6 overflow-hidden relative flex-col gap-5 md:gap-7 py-20 md:py-32'>
             <div className='flex items-center max-md:flex-col md:justify-between w-full gap-3'>
-                <h1 className='text-3xl md:text-4xl md:w-full' id="hero">{weapon.data.displayName} Skins</h1>
+                <h1 className='text-2xl md:text-3xl lg:text-4xl md:w-full' id="hero">{weapon.data.displayName} Skins</h1>
 
                 <SearchQuery query={query} placeholder='Search skin...' />
             </div>
