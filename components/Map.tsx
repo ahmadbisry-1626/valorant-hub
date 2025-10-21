@@ -71,7 +71,7 @@ const Map = ({ query, page }: { query: string, page: number }) => {
                             className='object-cover object-center size-full absolute'
                         />
                         <div className='size-full absolute top-0 left-0 bg-black opacity-0 group-hover:opacity-50 transition-all duration-300'/>
-                        <span className='absolute bottom-4 left-5 text-3xl text-white opacity-100 group-hover:opacity-50 transition-all duration-300'>{map.displayName}</span>
+                        <span className='absolute bottom-2 left-4 text-3xl text-white opacity-100 group-hover:opacity-50 transition-all duration-300'>{map.displayName}</span>
                     </Link>
                 ))}
 

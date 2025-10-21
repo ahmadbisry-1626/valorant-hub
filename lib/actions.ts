@@ -1,6 +1,6 @@
 "use server"
 
-import { AgentResponse, AgentResponseById, BundlesResponse, BundlesResponseById, GearResponse, MapResponseById, MapsResponse, WeaponsResponse, WeaponsResponseById } from "@/interface"
+import { AgentResponse, AgentResponseById, BuddiesResponse, BundlesResponse, BundlesResponseById, GearResponse, MapResponseById, MapsResponse, WeaponsResponse, WeaponsResponseById } from "@/interface"
 import { axiosInstance } from "./client"
 
 export const fetchGear = async (): Promise<GearResponse> => {
@@ -91,13 +91,13 @@ export const fetchBundles = async (): Promise<BundlesResponse> => {
     }
 }
 
-export const fetchBundleById = async (id: string): Promise<BundlesResponseById> => {
+export const fetchBuddies = async (): Promise<BuddiesResponse> => {
     try {
-        const response = await axiosInstance.get(`/bundles/${id}`)
+        const response = await axiosInstance.get('/buddies')
 
         return response.data
     } catch (error) {
         console.log(error)
-        throw new Error("Failed to fetch bundle data by id")
+        throw new Error("Failed to fetch buddies data")
     }
 }

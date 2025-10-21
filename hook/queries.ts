@@ -1,6 +1,7 @@
 import {
     AgentResponse,
     AgentResponseById,
+    BuddiesResponse,
     BundlesResponse,
     BundlesResponseById,
     GearResponse,
@@ -12,6 +13,7 @@ import {
 import {
     fetchAgentById,
     fetchAgents,
+    fetchBuddies,
     fetchBundleById,
     fetchBundles,
     fetchGear,
@@ -95,10 +97,10 @@ export const useBundle = () => {
     })
 }
 
-export const useBundleById = (id: string) => {
-    return useQuery<BundlesResponseById, Error>({
-        queryKey: ['bundles', id],
-        queryFn: () => fetchBundleById(id),
+export const useBuddies = () => {
+    return useQuery<BuddiesResponse, Error>({
+        queryKey: ['buddies'],
+        queryFn: fetchBuddies,
         staleTime: 5 * 60 * 1000,
         retry: 1
     })

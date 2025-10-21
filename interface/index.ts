@@ -241,11 +241,6 @@ export interface BundlesResponse {
   data: ValorantBundle[];
 }
 
-export interface BundlesResponseById {
-    status: number;
-    data: ValorantBundle;
-}
-
 export interface ValorantBundle {
   uuid: string;
   displayName: string;
@@ -258,4 +253,16 @@ export interface ValorantBundle {
   displayIcon2: string;
   verticalPromoImage: string | null;
   assetPath: string;
+}
+
+export interface BuddiesResponse {
+    status: number;
+    data: ValorantBuddy[]
+}
+
+export interface ValorantBuddy {
+    uuid: string;
+    displayName: string;
+    displayIcon: string | null;
+    assetPath: string;
 }
