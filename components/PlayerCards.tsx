@@ -59,16 +59,18 @@ const PlayerCards = ({ query, page }: { query: string, page: number }) => {
 
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 w-full'>
                 {paginatedPlayerCards.map((card) => (
-                    <div className='relative w-full h-[350px] sm:h-[450px] md:h-[350px] lg:h-[400px] overflow-hidden rounded-[12px]' key={card.uuid}
-                    >
+                    <div key={card.uuid} className='relative overflow-hidden bg-black rounded-[12px]'>
                         <Image
                             src={card.largeArt || '/images/pistol.png'}
                             alt={card.displayName}
                             width={600}
                             height={600}
                             sizes='100vw'
-                            className='absolute object-cover object-center size-full'
+                            loading='lazy'
+                            className='rounded-[12px]'
                         />
+
+                        <div className='w-full h-[150px] bg-gradient-to-t from-black absolute bottom-0 rounded-b-[12px]'/>
                         <span className='absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-xs md:text-sm w-full px-3'>
                             {card.displayName}
                         </span>

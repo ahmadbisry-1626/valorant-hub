@@ -54,10 +54,10 @@ const Bundle = ({ query, page }: { query: string, page: number }) => {
                 </div>
             }
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 w-full'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-full'>
                 {paginatedBundles.map((bundle) => (
                     <div className='flex flex-col gap-2 w-full' key={bundle.uuid}>
-                        <div className='w-full relative h-[200px] md:h-[250px] lg:h-[200px] xl:h-[250px] rounded-[12px] overflow-hidden'>
+                        <div className='w-full relative h-[150px] md:h-[200px] rounded-[12px] overflow-hidden'>
                             <Image
                                 src={bundle.displayIcon || '/images/pistol.png'}
                                 alt={bundle.displayName}
@@ -68,7 +68,7 @@ const Bundle = ({ query, page }: { query: string, page: number }) => {
                                 className='absolute size-full object-cover object-center'
                             />
                         </div>
-                        <h2 className='text-lg md:text-xl line-clamp-2'>{bundle.displayName}</h2>
+                        <h2 className='text-base md:text-xl line-clamp-2'>{bundle.displayName}</h2>
                     </div>
                 ))}
             </div>
