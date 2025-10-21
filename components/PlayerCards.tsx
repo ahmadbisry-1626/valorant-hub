@@ -17,7 +17,7 @@ const PlayerCards = ({ query, page }: { query: string, page: number }) => {
         return playerCards.data.filter((card) => card.displayName.toLowerCase().includes(search))
     }, [playerCards, query])
 
-    const itemsPerPage = 20
+    const itemsPerPage = 24
     const totalPages = Math.ceil((filteredPlayerCards.length) / itemsPerPage)
 
     const paginatedPlayerCards = useMemo(() => {
@@ -57,19 +57,9 @@ const PlayerCards = ({ query, page }: { query: string, page: number }) => {
                 </div>
             }
 
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-5 w-full'>
+            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 w-full'>
                 {paginatedPlayerCards.map((card) => (
-                    <div className='relative w-full h-[500px] overflow-hidden rounded-[12px] bg-black' key={card.uuid}
-                        style={{
-
-                            backgroundImage: `
-    radial-gradient(circle at 1px 1px, rgba(168, 85, 247, 0.15) 1px, transparent 0),   /* soft violet */
-    radial-gradient(circle at 1px 1px, rgba(96, 165, 250, 0.12) 1px, transparent 0),  /* soft blue */
-    radial-gradient(circle at 1px 1px, rgba(244, 114, 182, 0.10) 1px, transparent 0)  /* soft pink */
-  `,
-                            backgroundSize: "20px 20px, 30px 30px, 25px 25px",
-                            backgroundPosition: "0 0, 10px 10px, 15px 5px",
-                        }}
+                    <div className='relative w-full h-[350px] sm:h-[450px] md:h-[350px] lg:h-[400px] overflow-hidden rounded-[12px]' key={card.uuid}
                     >
                         <Image
                             src={card.largeArt || '/images/pistol.png'}
@@ -77,9 +67,9 @@ const PlayerCards = ({ query, page }: { query: string, page: number }) => {
                             width={600}
                             height={600}
                             sizes='100vw'
-                            className='absolute object-contain object-center size-full'
+                            className='absolute object-cover object-center size-full'
                         />
-                        <span className='absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center max-md:text-sm'>
+                        <span className='absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-xs md:text-sm'>
                             {card.displayName}
                         </span>
                     </div>
