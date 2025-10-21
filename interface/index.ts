@@ -281,3 +281,17 @@ export interface ValorantSpray {
     animationPng: string | null;
     animationGif: string | null;
 }
+
+export interface PlayerCardResponse {
+    status: number;
+    data: ValorantPlayerCard[]
+}
+
+export interface ValorantPlayerCard {
+    uuid: string;
+    displayName: string;
+    displayIcon?: string;
+    smallArt?: string;
+    wideArt?: string;
+    largeArt?: string;
+}

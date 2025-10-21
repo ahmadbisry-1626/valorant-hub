@@ -7,6 +7,7 @@ import {
     GearResponse,
     MapResponseById,
     MapsResponse,
+    PlayerCardResponse,
     SpraysResponse,
     WeaponsResponse,
     WeaponsResponseById
@@ -20,6 +21,7 @@ import {
     fetchGear,
     fetchMapById,
     fetchMaps,
+    fetchPlayerCards,
     fetchSprays,
     fetchWeaponById,
     fetchWeapons
@@ -112,6 +114,15 @@ export const useSprays = () => {
     return useQuery<SpraysResponse, Error>({
         queryKey: ['sprays'],
         queryFn: fetchSprays,
+        staleTime: 5 * 60 * 1000,
+        retry: 1
+    })
+}
+
+export const usePlayerCards = () => {
+    return useQuery<PlayerCardResponse, Error>({
+        queryKey: ['playercards'],
+        queryFn: fetchPlayerCards,
         staleTime: 5 * 60 * 1000,
         retry: 1
     })

@@ -21,9 +21,9 @@ const Bundle = ({ query, page }: { query: string, page: number }) => {
     const totalPages = Math.ceil((filteredBundles.length) / itemsPerPage)
 
     const paginatedBundles = useMemo(() => {
-        const start = (page - 1) * itemsPerPage
-        const end = start + itemsPerPage
-        return filteredBundles.slice(start, end)
+        const startIndex = (page - 1) * itemsPerPage
+        const endIndex = startIndex + itemsPerPage
+        return filteredBundles.slice(startIndex, endIndex)
     }, [filteredBundles, page])
 
     const hasNextPage = page < totalPages
