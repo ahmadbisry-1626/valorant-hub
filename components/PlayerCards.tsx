@@ -69,7 +69,7 @@ const PlayerCards = ({ query, page }: { query: string, page: number }) => {
                             sizes='100vw'
                             className='absolute object-cover object-center size-full'
                         />
-                        <span className='absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-xs md:text-sm'>
+                        <span className='absolute bottom-4 left-1/2 -translate-x-1/2 text-white text-center text-xs md:text-sm w-full px-3'>
                             {card.displayName}
                         </span>
                     </div>
