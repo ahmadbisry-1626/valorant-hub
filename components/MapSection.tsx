@@ -51,7 +51,7 @@ const MapSection = () => {
                             </div>
                         ))}
 
-                        <Link href={'/'}
+                        <Link href={'/maps'}
                             className='size-auto rounded-[12px] relative bg-black hover:bg-white transtion-all duration-300 ease-in-out group'
                             style={{
 

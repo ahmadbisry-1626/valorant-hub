@@ -15,7 +15,7 @@ const BundleSection = () => {
             />
 
             <div className='w-full relative md:mt-10 lg:mt-20 xl:mt-30'>
-                <Link href={'/'} className='absolute z-30 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 group'>
+                <Link href={'/bundles'} className='absolute z-30 top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 group'>
                     <span className='group-hover:tracking-widest transition-all duration-300 ease-in-out md:text-[100px] text-5xl text-white'>
                         BUNDLE
                     </span>

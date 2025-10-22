@@ -27,7 +27,7 @@ const WeaponSection = () => {
                 </div>
 
                 <div className='flex max-md:flex-col-reverse gap-5 z-10'>
-                    <Link href={'/'} className='md:text-8xl text-5xl text-main hover:text-white transition-all duration-300 md:[writing-mode:vertical-rl] md:rotate-180 flex items-center justify-center'>
+                    <Link href={'/weapons'} className='md:text-8xl text-5xl text-main hover:text-white transition-all duration-300 md:[writing-mode:vertical-rl] md:rotate-180 flex items-center justify-center'>
                         SEE MORE
                     </Link>
                     <Link href={'https://www.youtube.com/watch?v=sNHKU2Ggaks'} className='flex flex-col rounded-[12px] overflow-hidden hover:opacity-80 transition-all duration-300 relative'>

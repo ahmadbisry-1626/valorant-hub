@@ -48,7 +48,7 @@ const NavbarLarge = () => {
                                             <Link
                                                 href={item.path}
                                                 key={item.name}
-                                                className={`text-right text-md hover:text-white w-full px-3 py-1 rounded-[8px] hover:bg-main ${isItemActive && 'bg-main text-white'}`}>
+                                                className={`text-right text-md hover:text-white w-full px-3 py-1 hover:bg-main ${isItemActive && 'bg-main text-white'}`}>
                                                 {item.name}
                                             </Link>
                                         )

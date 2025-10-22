@@ -19,7 +19,7 @@ const WeaponSkinDropdown = () => {
             <div
                 onMouseEnter={() => setIsOpen(true)}
                 onMouseLeave={() => setIsOpen(false)}
-                className={`text-right text-md w-full px-3 py-1 rounded-[8px] hover:bg-main cursor-pointer flex items-center justify-end gap-1 group`}>
+                className={`text-right text-md w-full px-3 py-1 hover:bg-main cursor-pointer flex items-center justify-end gap-1 group`}>
 
                 <div className={`w-[300px] absolute top-0 z-20 bg-transparent left-0 px-4 -translate-x-74 ${isOpen ? 'opacity-100' : 'opacity-0'} rounded-[12px]flex flex-col`}>
                     {isLoading ? (
@@ -35,7 +35,7 @@ const WeaponSkinDropdown = () => {
                                     <Link
                                         href={`/weapons/weapon-skin/${weapon.uuid}`}
                                         key={weapon.uuid}
-                                        className={`text-right text-md hover:text-white w-full px-3 py-1 rounded-[8px] hover:bg-main ${isItemActive && 'bg-main text-white'}`}>
+                                        className={`text-right text-md hover:text-white w-full px-3 py-1 hover:bg-main ${isItemActive && 'bg-main text-white'}`}>
                                         {weapon.displayName}
                                     </Link>
                                 )
