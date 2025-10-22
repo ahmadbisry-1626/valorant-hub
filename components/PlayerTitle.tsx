@@ -75,11 +75,11 @@ const PlayerTitle = ({ query, page }: { query: string, page: number }) => {
                             <HoverCardTrigger className='px-4 py-2 rounded-[8px] border bg-white hover:bg-white-light flex-flex-col'>
                                 <p className='text-xs' style={{ color: textColor }}>Title</p>
                                 <span className='text-base max-md:text-sm text-gray line-clamp-1 capitalize'>
-                                    {title.titleText?.toLocaleLowerCase() || 'Unkown'}
+                                    {title.titleText?.toLocaleLowerCase() || title.displayName?.toLocaleLowerCase() || 'Unkown'}
                                 </span>
                             </HoverCardTrigger>
                             <HoverCardContent className='capitalize bg-black text-white-lighter px-2 py-1 w-max rounded-[4px] text-xs md:text-sm font-russo-one'>
-                                {title.titleText?.toLocaleLowerCase() || 'Unkown'}
+                                {title.displayName?.toLocaleLowerCase() || 'Unkown'}
                             </HoverCardContent>
                         </HoverCard>
                     )

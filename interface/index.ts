@@ -303,7 +303,7 @@ export interface TitleResponse {
 
 export interface ValorantTitle {
     uuid: string;
-    displayName: string;
+    displayName?: string;
     titleText?: string;
     assetPath: string;
 }
