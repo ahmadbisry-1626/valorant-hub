@@ -14,7 +14,7 @@ const AgentSection = () => {
                     whileInView={{
                         y: [200, -20, 10, 0],
                         transition: {
-                            delay: 0.2,
+                            delay: 0.1,
                             duration: 0.5,
                             ease: 'easeInOut',
                             times: [0, 0.6, 0.85, 1]
@@ -34,7 +34,7 @@ const AgentSection = () => {
                     whileInView={{
                         scale: [0.5, 1.1, 0.95, 1],
                         transition: {
-                            delay: 0.2,
+                            delay: 0.1,
                             duration: 0.5,
                             ease: 'easeOut',
                             times: [0, 0.6, 0.85, 1]
@@ -63,7 +63,7 @@ const AgentSection = () => {
                     whileInView={{
                         scale: [0.5, 1.1, 0.95, 1],
                         transition: {
-                            delay: 0.2,
+                            delay: 0.1,
                             duration: 0.5,
                             ease: 'easeOut',
                             times: [0, 0.6, 0.85, 1]
@@ -83,7 +83,7 @@ const AgentSection = () => {
                     whileInView={{
                         y: [200, -20, 10, 0],
                         transition: {
-                            delay: 0.2,
+                            delay: 0.1,
                             duration: 0.5,
                             ease: 'easeInOut',
                             times: [0, 0.6, 0.85, 1]
