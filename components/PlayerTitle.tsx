@@ -71,20 +71,17 @@ const PlayerTitle = ({ query, page }: { query: string, page: number }) => {
                     const textColor = colorOrder[i % colorOrder.length]
 
                     return (
-                        <div
-                            className='px-4 py-2 rounded-[8px] border bg-white hover:bg-white-light flex-flex-col'
-                            key={title.uuid}
-                        >
-                            <p className='text-xs' style={{ color: textColor }}>Title</p>
-                            <HoverCard>
-                                <HoverCardTrigger className='text-base max-md:text-sm text-gray line-clamp-1 capitalize'>
+                        <HoverCard key={title.uuid}>
+                            <HoverCardTrigger className='px-4 py-2 rounded-[8px] border bg-white hover:bg-white-light flex-flex-col'>
+                                <p className='text-xs' style={{ color: textColor }}>Title</p>
+                                <span className='text-base max-md:text-sm text-gray line-clamp-1 capitalize'>
                                     {title.titleText?.toLocaleLowerCase() || 'Unkown'}
-                                </HoverCardTrigger>
-                                <HoverCardContent className='capitalize bg-black text-white-lighter p-2 w-max rounded-[4px] text-xs md:text-sm font-russo-one'>
-                                    {title.titleText?.toLocaleLowerCase() || 'Unkown'}
-                                </HoverCardContent>
-                            </HoverCard>
-                        </div>
+                                </span>
+                            </HoverCardTrigger>
+                            <HoverCardContent className='capitalize bg-black text-white-lighter px-2 py-1 w-max rounded-[4px] text-xs md:text-sm font-russo-one'>
+                                {title.titleText?.toLocaleLowerCase() || 'Unkown'}
+                            </HoverCardContent>
+                        </HoverCard>
                     )
                 })}
             </div>
