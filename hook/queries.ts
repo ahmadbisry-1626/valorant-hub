@@ -9,6 +9,7 @@ import {
     MapsResponse,
     PlayerCardResponse,
     SpraysResponse,
+    TitleResponse,
     WeaponsResponse,
     WeaponsResponseById
 } from "@/interface"
@@ -23,6 +24,7 @@ import {
     fetchMaps,
     fetchPlayerCards,
     fetchSprays,
+    fetchTitles,
     fetchWeaponById,
     fetchWeapons
 } from "@/lib/actions"
@@ -123,6 +125,15 @@ export const usePlayerCards = () => {
     return useQuery<PlayerCardResponse, Error>({
         queryKey: ['playercards'],
         queryFn: fetchPlayerCards,
+        staleTime: 5 * 60 * 1000,
+        retry: 1
+    })
+}
+
+export const useTitles = () => {
+    return useQuery<TitleResponse, Error>({
+        queryKey: ['titles'],
+        queryFn: fetchTitles,
         staleTime: 5 * 60 * 1000,
         retry: 1
     })

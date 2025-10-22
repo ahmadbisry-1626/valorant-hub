@@ -295,3 +295,15 @@ export interface ValorantPlayerCard {
     wideArt?: string;
     largeArt?: string;
 }
+
+export interface TitleResponse {
+    status: number;
+    data: ValorantTitle[]
+}
+
+export interface ValorantTitle {
+    uuid: string;
+    displayName: string;
+    titleText?: string;
+    assetPath: string;
+}

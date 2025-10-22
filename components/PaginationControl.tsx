@@ -64,13 +64,13 @@ const PaginationControl = ({ page, totalPages, hasNextPage, hasPrevPage }: Pagin
                     const isActive = p === page
 
                     return (
-                        <PaginationItem key={index} className='transition'>
+                        <PaginationItem key={index} className=''>
                             {p === '...' ? (
                                 <PaginationEllipsis />
                             ) : (
                                 <PaginationLink onClick={() => {
                                     if (typeof p === 'number') onPageChange(p)
-                                }} className={`border-[3px] border-black dark:border-white rounded-[12px] hover:bg-main hover:border-main hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 md:!p-5 ${isActive ? 'bg-main border-main text-white dark:bg-white dark:text-black' : 'bg-transparent text-black dark:text-white'} cursor-pointer select-none`}>
+                                }} className={`border-[2px] border-black dark:border-white rounded-[12px] hover:bg-main hover:border-main hover:text-white dark:hover:bg-white dark:hover:text-black md:!p-5 ${isActive ? 'bg-main border-main text-white dark:bg-white dark:text-black' : 'bg-transparent text-black dark:text-white'} cursor-pointer select-none`}>
                                     {p}
                                 </PaginationLink>
                             )}

@@ -47,13 +47,13 @@ const PlayerCards = ({ query, page }: { query: string, page: number }) => {
         <div className='flex flex-col gap-5 md:gap-10 w-full py-20 md:py-32'>
             <div className='flex items-center md:justify-between max-md:flex-col max-md:gap-5 w-full'>
                 <h1 className='text-2xl md:text-3xl lg:text-4xl md:w-full' id="hero">Player Cards</h1>
-                <SearchQuery query={query} placeholder='Search bundle...' />
+                <SearchQuery query={query} placeholder='Search card...' />
             </div>
 
 
             {paginatedPlayerCards.length === 0 && !isLoading && !isError &&
                 <div className='w-full h-[300px] md:h-[400px] flex items-center justify-center bg-white-light rounded-[12px]'>
-                    <p className='text-gray md:text-xl text-md'>No buddies found</p>
+                    <p className='text-gray md:text-xl text-md'>No cards found</p>
                 </div>
             }
 
