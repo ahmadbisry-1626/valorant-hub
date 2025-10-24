@@ -56,6 +56,7 @@ const MapSection = () => {
                                 }}
                                 viewport={{ once: true }}
                                 className='w-full rounded-[12px] overflow-hidden h-[250px] md:h-[350px]'
+                                key={i}
                             >
                                 <Image
                                     src={map.pathMD}

@@ -11,7 +11,7 @@ const BundleSection = () => {
                 width={2000}
                 height={2000}
                 sizes='100vw'
-                className='absolute top-0 z-50 md:-translate-y-12 -translate-y-10 select-none'
+                className='absolute top-0 z-40 md:-translate-y-12 -translate-y-10 select-none'
             />
 
             <div className='w-full relative md:mt-10 lg:mt-20 xl:mt-30'>
