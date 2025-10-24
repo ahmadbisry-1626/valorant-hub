@@ -10,6 +10,7 @@ import { RiVerifiedBadgeFill } from "react-icons/ri";
 import { toast } from 'sonner'
 import { IoCheckmarkDoneSharp } from "react-icons/io5";
 import PaginationControl from './PaginationControl'
+import { notFound } from 'next/navigation'
 
 const Agents = ({ query, role, page }: { query: string, role: string, page: number }) => {
     const { data: agents, isLoading, isError } = useAgent();
@@ -52,6 +53,8 @@ const Agents = ({ query, role, page }: { query: string, role: string, page: numb
 
     const hasNextPage = page < totalPages
     const hasPrevPage = page > 1
+
+    if (isError) return notFound()
 
     return (
         <div className='w-full md:max-w-7xl mx-auto px-5 md:px-6 flex flex-col'>

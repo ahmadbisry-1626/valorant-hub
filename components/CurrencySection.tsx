@@ -1,6 +1,5 @@
 import { currency } from '@/constants'
 import { MotionH1, MotionImage } from '@/lib/framer'
-import Image from 'next/image'
 import React from 'react'
 
 const CurrencySection = () => {

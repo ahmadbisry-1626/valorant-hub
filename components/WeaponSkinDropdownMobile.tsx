@@ -12,7 +12,7 @@ import { ImSpinner6 } from 'react-icons/im'
 const WeaponSkinDropdownMobile = () => {
     const { isDropDownOpen, setIsDropDownOpen } = useDropDownMobile()
     const { setIsOpen } = useMobileMenu()
-    const { data: weapon, isLoading, isError } = useWeapon()
+    const { data: weapon, isLoading } = useWeapon()
     const [isOpenWeapon, setIsOpenWeapon] = useState(false)
     const pathname = usePathname()
 

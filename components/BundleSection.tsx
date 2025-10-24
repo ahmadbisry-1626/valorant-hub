@@ -1,6 +1,5 @@
 import { MotionImage, MotionLink } from '@/lib/framer'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 const BundleSection = () => {

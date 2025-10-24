@@ -1,7 +1,7 @@
 "use client"
 
 import { useDropDownMobile, useMobileMenu } from '@/hook/store'
-import React, { useState } from 'react'
+import React from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { Separator } from './ui/separator';
 import { ScrollArea } from './ui/scroll-area';

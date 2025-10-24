@@ -1,6 +1,6 @@
 "use server"
 
-import { AgentResponse, AgentResponseById, BuddiesResponse, BundlesResponse, BundlesResponseById, GearResponse, MapResponseById, MapsResponse, PlayerCardResponse, SpraysResponse, TitleResponse, WeaponsResponse, WeaponsResponseById } from "@/interface"
+import { AgentResponse, AgentResponseById, BuddiesResponse, BundlesResponse, GearResponse, MapResponseById, MapsResponse, PlayerCardResponse, SpraysResponse, TitleResponse, WeaponsResponse, WeaponsResponseById } from "@/interface"
 import { axiosInstance } from "./client"
 
 export const fetchGear = async (): Promise<GearResponse> => {

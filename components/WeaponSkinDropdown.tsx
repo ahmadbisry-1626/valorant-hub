@@ -2,14 +2,14 @@
 
 import { useWeapon } from '@/hook/queries'
 import { usePathname } from 'next/navigation'
-import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
+import { BiSolidLeftArrow } from "react-icons/bi";
 import React, { useState } from 'react'
 import { useDropDown } from '@/hook/store';
 import Link from 'next/link';
 import { ImSpinner6 } from "react-icons/im";
 
 const WeaponSkinDropdown = () => {
-    const { data: weapon, isLoading, isError } = useWeapon()
+    const { data: weapon, isLoading } = useWeapon()
     const { isDropDownOpen } = useDropDown()
     const pathname = usePathname()
     const [isOpen, setIsOpen] = useState(false)

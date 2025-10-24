@@ -1,6 +1,6 @@
 "use client"
 
-import { MotionDiv, MotionH1, MotionImage, MotionP } from '@/lib/framer'
+import { MotionDiv, MotionImage } from '@/lib/framer'
 import Image from 'next/image'
 import React from 'react'
 

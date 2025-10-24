@@ -6,7 +6,7 @@ import Image from 'next/image'
 import React from 'react'
 
 const GameEquipmentSection = () => {
-    const { data: Gear, isLoading, isError } = useGear()
+    const { data: Gear } = useGear()
 
     return (
         <div className='relative w-full bg-main mask-clip-path-gameEQ h-[250px] md:h-[400px] top-0 pt-10 z-10 md:-mb-52 -mb-40'>
