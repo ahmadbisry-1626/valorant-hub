@@ -1,6 +1,7 @@
 "use client"
 
 import { useGear } from '@/hook/queries'
+import { MotionDiv } from '@/lib/framer'
 import Image from 'next/image'
 import React from 'react'
 
@@ -16,7 +17,19 @@ const GameEquipmentSection = () => {
                     const mobileSize = 80 - i * 15
 
                     return (
-                        <div className='flex items-center justify-center py-5 px-5 md:px-10 border-l-2 group relative' key={gear.uuid}>
+                        <MotionDiv
+                            initial={{ scale: 0.5, }}
+                            whileInView={{
+                                scale: [0.5, 1.1, 0.95, 1],
+                                transition: {
+                                    delay: i * 0.2,
+                                    duration: 0.5,
+                                    ease: 'easeOut',
+                                    times: [0, 0.6, 0.85, 1]
+                                }
+                            }}
+                            viewport={{ once: true }}
+                            className='flex items-center justify-center py-5 px-5 md:px-10 border-l-2 group relative' key={gear.uuid}>
                             <Image
                                 src={gear.displayIcon}
                                 alt={gear.displayName}
@@ -36,7 +49,7 @@ const GameEquipmentSection = () => {
                             <span className='absolute top-1/2 -translate-y-1/2 break-normal text-lg md:text-2xl text-white group-hover:scale-100 scale-0 transition-all duration-300 ease-in-out text-center'>
                                 {gear.displayName}
                             </span>
-                        </div>
+                        </MotionDiv>
                     )
                 })}
             </div>

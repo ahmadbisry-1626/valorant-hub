@@ -2,8 +2,7 @@
 
 import Image from 'next/image'
 import React from 'react'
-import Link from 'next/link'
-import { MotionDiv, MotionImage } from '@/lib/framer'
+import { MotionDiv, MotionImage, MotionLink } from '@/lib/framer'
 
 const AgentSection = () => {
     return (
@@ -98,7 +97,21 @@ const AgentSection = () => {
                     className="relative xl:w-[600px] lg:w-[500px] h-auto z-10 lg:-translate-y-14"
                 />
 
-                <Link href='/agents' className='absolute lg:bottom-10 bottom-20 md:bottom-26 lg:left-42 max-lg:left-1/2 max-lg:-translate-x-1/2 text-5xl -rotate-18 md:-rotate-10 lg:-rotate-4 uppercase lg:text-black text-white z-10 w-max max-lg:hover:text-gray-300 lg:hover:text-white transition-all duration-300'>FIND < br className='lg:hidden block' />AGENT</Link>
+                <MotionLink
+                    initial={{ opacity: 0 }}
+                    whileInView={{
+                        opacity: 1,
+                        transition: {
+                            delay: 0.4,
+                            duration: 0.5,
+                            ease: 'easeInOut',
+                        }
+                    }}
+                    viewport={{ once: true }}
+                    href='/agents'
+                    className='absolute lg:bottom-10 bottom-20 md:bottom-26 lg:left-42 max-lg:left-1/2 max-lg:-translate-x-1/2 text-5xl -rotate-18 md:-rotate-10 lg:-rotate-4 uppercase lg:text-black text-white z-10 w-max max-lg:hover:text-gray-300 lg:hover:text-white transition-all duration-300'>
+                    FIND < br className='lg:hidden block' />AGENT
+                </MotionLink>
             </div>
 
         </div>

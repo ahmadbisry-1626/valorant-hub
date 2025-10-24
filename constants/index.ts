@@ -70,10 +70,6 @@ export const navLinks = [
         name: 'Gameplay',
         dropdown: [
             {
-                name: 'Game Modes',
-                path: '/game-modes'
-            },
-            {
                 name: 'Weapons',
                 path: '/weapons'
             },

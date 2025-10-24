@@ -1,6 +1,7 @@
 "use client"
 
 import { gameMode } from '@/constants'
+import { MotionDiv } from '@/lib/framer'
 import Image from 'next/image'
 import React, { useState } from 'react'
 
@@ -12,17 +13,40 @@ const GameModeSection = () => {
             <div className="w-full mask-clip-path-map-bottom bg-main absolute top-0 h-[500px] md:h-[700px] md:-translate-y-20 -translate-y-16" />
 
             <div className='flex flex-col gap-10 max-md:gap-5 md:max-w-7xl mx-auto px-5 md:px-6 w-full mt-40 md:mt-52 items-center justify-center'>
-                <div className='relative flex items-center justify-center'>
+                <MotionDiv
+                    initial={{ scale: 0.5, }}
+                    whileInView={{
+                        scale: [0.5, 1.1, 0.95, 1],
+                        transition: {
+                            delay: 0.1,
+                            duration: 0.5,
+                            ease: 'easeOut',
+                            times: [0, 0.6, 0.85, 1]
+                        }
+                    }}
+                    viewport={{ once: true }}
+                    className='relative flex items-center justify-center'>
                     <Image alt='tagline' src={'/images/tagline-black.png'} width={350} height={350} sizes='100vw' className='md:w-[350px] h-auto w-[250px]' />
                     <h2 className='absolute top-3 md:top-5 left-1/2 -translate-x-1/2 text-2xl md:text-3xl text-white w-max'>GAME MODE</h2>
-                </div>
+                </MotionDiv>
 
                 <div className='flex max-md:flex-col items-center gap-5 w-full justify-center'>
-                    {gameMode.map((mode) => {
+                    {gameMode.map((mode, i) => {
                         const isModeActive = isActive === mode.name
 
                         return (
-                            <div
+                            <MotionDiv
+                                initial={{ x: 100 }}
+                                whileInView={{
+                                    x: [100, -20, 10, 0],
+                                    transition: {
+                                        delay: i * 0.2,
+                                        duration: 0.5,
+                                        ease: 'easeInOut',
+                                        times: [0, 0.6, 0.85, 1]
+                                    }
+                                }}
+                                viewport={{ once: true }}
                                 onMouseEnter={() => setIsActive(mode.name)}
                                 key={mode.name}
                                 className={`rounded-[12px] bg-black p-4 flex items-center justify-center h-[400px]  ${isModeActive ? 'xl:w-[400px] lg:w-[350px] md:w-[300px] w-full max-md:h-[400px]' : 'xl:w-[150px] lg:w-[120px] md:w-[100px] w-full max-md:h-[200px]'} transition-all duration-300 ease-in-out relative overflow-hidden`}
@@ -46,7 +70,7 @@ const GameModeSection = () => {
                                         {mode.duration}
                                     </span>
                                 </div>
-                            </div>
+                            </MotionDiv>
                         )
                     })}
                 </div>

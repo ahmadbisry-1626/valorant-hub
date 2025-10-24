@@ -1,8 +1,8 @@
 import { mapImage } from '@/constants'
 import Image from 'next/image'
-import Link from 'next/link';
 import React from 'react'
 import { HiMiniPaperAirplane } from "react-icons/hi2";
+import { MotionDiv, MotionLink } from '../lib/framer';
 
 const MapSection = () => {
     return (
@@ -16,7 +16,7 @@ const MapSection = () => {
                     width={300}
                     height={300}
                     sizes='100vw'
-                    className='absolute bottom-20'
+                    className='absolute bottom-20 md:block hidden'
                 />
 
                 <div className='w-full md:max-w-7xl mx-auto px-5 md:px-6 flex flex-col md:gap-10 gap-5 relative'>
@@ -25,13 +25,38 @@ const MapSection = () => {
                         <div className='size-4 md:size-5 bg-black' />
                     </div>
 
-                    <h2 className='text-4xl lg:text-5xl text-left leading-tight'>
+                    <MotionDiv
+                        initial={{ y: -100 }}
+                        whileInView={{
+                            y: [-100, 10, 20, 0],
+                            transition: {
+                                delay: 0.2,
+                                duration: 0.5,
+                                ease: 'easeInOut',
+                                times: [0, 0.6, 0.85, 1]
+                            }
+                        }}
+                        viewport={{ once: true }}
+                        className='text-4xl lg:text-5xl text-left leading-tight'>
                         Explore New <br /> Grounds
-                    </h2>
+                    </MotionDiv>
 
                     <div className='grid grid-cols-2 md:gap-7 gap-5 w-full relative'>
-                        {mapImage.map((map) => (
-                            <div key={map.name} className='w-full rounded-[12px] overflow-hidden h-[250px] md:h-[350px]'>
+                        {mapImage.map((map, i) => (
+                            <MotionDiv
+                                initial={{ y: 100 }}
+                                whileInView={{
+                                    y: [100, -20, 10, 0],
+                                    transition: {
+                                        delay: i * 0.1,
+                                        duration: 0.4,
+                                        ease: 'easeInOut',
+                                        times: [0, 0.6, 0.85, 1]
+                                    }
+                                }}
+                                viewport={{ once: true }}
+                                className='w-full rounded-[12px] overflow-hidden h-[250px] md:h-[350px]'
+                            >
                                 <Image
                                     src={map.pathMD}
                                     alt={map.name}
@@ -48,10 +73,22 @@ const MapSection = () => {
                                     sizes='100vw'
                                     className='size-full object-cover object-center block md:hidden'
                                 />
-                            </div>
+                            </MotionDiv>
                         ))}
 
-                        <Link href={'/maps'}
+                        <MotionLink
+                            initial={{ y: 100 }}
+                            whileInView={{
+                                y: [100, -20, 10, 0],
+                                transition: {
+                                    delay: 0.3,
+                                    duration: 0.4,
+                                    ease: 'easeInOut',
+                                    times: [0, 0.6, 0.85, 1]
+                                }
+                            }}
+                            viewport={{ once: true }}
+                            href={'/maps'}
                             className='size-auto rounded-[12px] relative bg-black hover:bg-white transtion-all duration-300 ease-in-out group'
                             style={{
 
@@ -71,7 +108,7 @@ const MapSection = () => {
                             </h2>
 
                             <HiMiniPaperAirplane className='absolute size-12 md:size-16 -rotate-45 max-md:right-5 max-md:bottom-5 md:bottom-6 md:right-6 text-white group-hover:text-black transition-all duration-300 ease-in-out' />
-                        </Link>
+                        </MotionLink>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,7 @@
+"use client"
+
+import { MotionDiv, MotionLink } from '@/lib/framer'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 const WeaponSection = () => {
@@ -15,7 +17,19 @@ const WeaponSection = () => {
             />
 
             <div className='flex flex-col gap-10 w-full max-w-7xl mx-auto px-5 md:px-6 items-center justify-center'>
-                <div className='flex-col gap-5 w-full flex items-end z-10'>
+                <MotionDiv
+                    initial={{ y: 200 }}
+                    whileInView={{
+                        y: [200, -20, 10, 0],
+                        transition: {
+                            delay: 0.1,
+                            duration: 0.5,
+                            ease: 'easeInOut',
+                            times: [0, 0.6, 0.85, 1]
+                        }
+                    }}
+                    viewport={{ once: true }}
+                    className='flex-col gap-5 w-full flex items-end z-10'>
                     <div className='relative z-10'>
                         <Image alt='tagline' src={'/images/tagline.png'} width={200} height={200} sizes='100vw' className='md:w-[200px] h-auto w-[180px]' />
                         <h2 className='absolute top-1/2 -translate-y-1/2 right-0 text-xl md:text-2xl text-white -translate-x-9'>WEAPON</h2>
@@ -24,13 +38,37 @@ const WeaponSection = () => {
                     <h1 className='text-4xl md:text-5xl text-right text-white leading-tight'>
                         Choose your <br /> Weapon
                     </h1>
-                </div>
+                </MotionDiv>
 
                 <div className='flex max-md:flex-col-reverse gap-5 z-10'>
-                    <Link href={'/weapons'} className='md:text-8xl text-5xl text-main hover:text-white transition-all duration-300 md:[writing-mode:vertical-rl] md:rotate-180 flex items-center justify-center'>
+                    <MotionLink
+                        initial={{ y: -200 }}
+                        whileInView={{
+                            y: [-200, 20, 10, 0],
+                            transition: {
+                                delay: 0.1,
+                                duration: 0.5,
+                                ease: 'easeInOut',
+                                times: [0, 0.6, 0.85, 1]
+                            }
+                        }}
+                        viewport={{ once: true }}
+                        href={'/weapons'} className='md:text-8xl text-5xl text-main hover:text-white transition-all duration-300 md:[writing-mode:vertical-rl] md:rotate-180 flex items-center justify-center'>
                         SEE MORE
-                    </Link>
-                    <Link href={'https://www.youtube.com/watch?v=sNHKU2Ggaks'} className='flex flex-col rounded-[12px] overflow-hidden hover:opacity-80 transition-all duration-300 relative'>
+                    </MotionLink>
+                    <MotionLink
+                        initial={{ x: 200 }}
+                        whileInView={{
+                            x: [200, -20, 10, 0],
+                            transition: {
+                                delay: 0.1,
+                                duration: 0.5,
+                                ease: 'easeInOut',
+                                times: [0, 0.6, 0.85, 1]
+                            }
+                        }}
+                        viewport={{ once: true }}
+                        href={'https://www.youtube.com/watch?v=sNHKU2Ggaks'} className='flex flex-col rounded-[12px] overflow-hidden hover:opacity-80 transition-all duration-300 relative'>
                         <div className='relative w-full md:h-[400px] h-[250px]'>
                             <video
                                 src={'/videos/weapon.mp4'}
@@ -48,7 +86,7 @@ const WeaponSection = () => {
                             <div className='size-3 md:size-4 bg-main' />
                             <div className='size-3 md:size-4 bg-main' />
                         </div>
-                    </Link>
+                    </MotionLink>
                 </div>
             </div>
         </div>
