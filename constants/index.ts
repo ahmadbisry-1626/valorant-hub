@@ -125,3 +125,27 @@ export const roles = [
         name: 'Controller'
     }
 ]
+
+export const footerInfo = [
+    {
+        name: 'About',
+        path: '/'
+    },
+    {
+        name: 'Changelog',
+        path: 'https://github.com/ahmadbisry-1626/valorant-hub/commits/main/'
+    },
+    {
+        name: 'FAQ',
+        path: '/'
+    },
+    {
+        name: 'Contact',
+        path: 'https://ahmadbisry.vercel.app'
+    },
+    {
+        name: 'API Credits',
+        path: 'https://dash.valorant-api.com/endpoints/agents'
+    }
+
+]

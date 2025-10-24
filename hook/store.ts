@@ -15,6 +15,16 @@ interface PaginationProps {
     setPageParam: (page: number) => void
 }
 
+interface QuickLinksProps {
+    isQuickLinksOpen: string,
+    setQuickLinksOpen: (status: string) => void
+}
+
+export const useQuickLinks = create<QuickLinksProps>((set) => ({
+    isQuickLinksOpen: 'Gameplay',
+    setQuickLinksOpen: (isQuickLinksOpen) => set({ isQuickLinksOpen })
+}))
+
 export const usePagination = create<PaginationProps>((set) => ({
     pageParam: 1,
     setPageParam: (page) => set({ pageParam: page })
