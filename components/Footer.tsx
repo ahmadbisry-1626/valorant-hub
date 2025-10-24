@@ -14,7 +14,7 @@ const Footer = () => {
     return (
         <div className='bg-black relative w-full overflow-hidden'>
             <div className='flex items-center justify-center flex-col md:gap-10 gap-5 w-full md:max-w-7xl md:px-6 px-5 pt-10 md:pt-20 md:pb-10 pb-5 mx-auto'>
-                <div className='flex items-center gap-5 w-full flex-wrap'>
+                <div className='flex items-center gap-3 md:gap-5 w-full flex-wrap'>
                     {navLinks.map((link) => {
                         const isActive = isQuickLinksOpen === link.name
 
