@@ -53,7 +53,6 @@ const AgentDetails = ({ id }: { id: string }) => {
                         width={800}
                         height={800}
                         sizes='100vw'
-                        loading='lazy'
                         className='absolute z-10 translate-y-20 object-cover object-top scale-150'
                     />
                 </div>

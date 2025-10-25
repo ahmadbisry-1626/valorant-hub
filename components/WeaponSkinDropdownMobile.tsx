@@ -28,9 +28,9 @@ const WeaponSkinDropdownMobile = () => {
                 </button>
 
                 {isOpenWeapon && (
-                    <ScrollArea className='px-5 py-3 w-full h-[300px] rounded-[12px] bg-[#262626]'>
+                    <ScrollArea className='px-5 py-3 w-full h-[250px] rounded-[12px] bg-[#262626]'>
                         {isLoading ? (
-                            <div className='w-full h-[300px] flex items-center justify-center'>
+                            <div className='w-full h-[250px] flex items-center justify-center'>
                                 <ImSpinner6 className='size-7 text-main animate-spin' />
                             </div>
                         ) : (

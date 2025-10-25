@@ -73,7 +73,6 @@ const Buddies = ({ query, page }: { query: string, page: number }) => {
                                 width={100}
                                 height={100}
                                 sizes='100vw'
-                                loading='lazy'
                                 className='object-cover object-center z-20'
                             />
                         </div>

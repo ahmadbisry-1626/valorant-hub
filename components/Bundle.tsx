@@ -64,7 +64,6 @@ const Bundle = ({ query, page }: { query: string, page: number }) => {
                                 width={600}
                                 height={600}
                                 sizes='100vw'
-                                loading='lazy'
                                 className='absolute size-full object-cover object-center'
                             />
                         </div>

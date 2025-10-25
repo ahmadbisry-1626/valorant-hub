@@ -66,7 +66,6 @@ const PlayerCards = ({ query, page }: { query: string, page: number }) => {
                             width={600}
                             height={600}
                             sizes='100vw'
-                            loading='lazy'
                             className='rounded-[12px]'
                         />
 

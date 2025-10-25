@@ -90,7 +90,7 @@ const Agents = ({ query, role, page }: { query: string, role: string, page: numb
                             </div>
                         </Link>
 
-                        <Link href={`/agents/${agent.uuid}`} className='w-full h-[300px] md:h-[300px] lg:h-[400px] bg-black relative overflow-hidden'>
+                        <Link href={`/agents/${agent.uuid}`} className='w-full h-[350px] md:h-[400px] bg-black relative overflow-hidden'>
                             <Image
                                 src={agent.background}
                                 alt={agent.displayName}
@@ -105,7 +105,6 @@ const Agents = ({ query, role, page }: { query: string, role: string, page: numb
                                 width={800}
                                 height={800}
                                 sizes='100vw'
-                                loading='lazy'
                                 className='absolute z-10 translate-y-20 object-cover object-top scale-150'
                             />
                         </Link>

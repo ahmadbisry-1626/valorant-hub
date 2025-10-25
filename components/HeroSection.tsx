@@ -61,7 +61,7 @@ const HeroSection = () => {
                 height={70}
                 className='absolute bottom-20 md:bottom-40 md:left-20 left-10'
             />
-            <div className='absolute lg:top-24 top-10 lg:left-60 md:left-32 left-10'>
+            <div className='absolute lg:top-24 top-16 lg:left-60 md:left-32 left-10'>
                 <MotionDiv
                     custom={5}
                     variants={floatingVariants}
@@ -74,7 +74,7 @@ const HeroSection = () => {
                     path='/images/glass.png'
                     width={200}
                     height={200}
-                    className='md:w-[200px] md:h-[180px] w-[150px] h-[130px]'
+                    className='md:w-[200px] w-[120px] h-auto'
                 />
             </div>
             <AbstractImage
@@ -82,7 +82,7 @@ const HeroSection = () => {
                 path='/images/abstract-2.png'
                 width={80}
                 height={80}
-                className='absolute lg:top-20 top-10 lg:right-52 md:right-32 right-10'
+                className='absolute lg:top-20 top-16 lg:right-52 md:right-32 right-10'
             />
             <div className='absolute bottom-0 right-0'>
                 <MotionDiv
@@ -99,7 +99,7 @@ const HeroSection = () => {
                     path='/images/abstract-main.png'
                     width={300}
                     height={300}
-                    className='md:w-[300px] md:h-[415px] w-[200px] h-[315px]'
+                    className='md:w-[300px] w-[180px] h-auto'
                 />
             </div>
 
@@ -114,7 +114,7 @@ const HeroSection = () => {
                 }}
                 viewport={{ once: true }}
                 className='flex flex-col gap-5 md:gap-10 items-center z-10 relative' id='hero'>
-                <Image src={'/images/valorant-logo.png'} alt='logo valorant' width={250} height={250} sizes='100vw' className='md:w-[250px] md:h-[205px] w-[200px] h-[160px]' />
+                <Image src={'/images/valorant-logo.png'} alt='logo valorant' width={250} height={250} sizes='100vw' className='md:w-[250px] w-[150px] h-auto' />
                 <div className='flex flex-col gap-3 items-center'>
                     <h1 className='md:text-5xl text-4xl text-main'>Valorant Hub</h1>
                     <p className='md:text-2xl text-lg text-center md:max-w-xl max-w-md md:px-6 px-5'>
