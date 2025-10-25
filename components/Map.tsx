@@ -67,6 +67,8 @@ const Map = ({ query, page }: { query: string, page: number }) => {
                             width={600}
                             height={600}
                             sizes='100vw'
+                            quality={60}
+                            loading='lazy'
                             className='object-cover object-center size-full absolute'
                         />
                         <div className='size-full absolute top-0 left-0 bg-black opacity-0 group-hover:opacity-50 transition-all duration-300'/>
