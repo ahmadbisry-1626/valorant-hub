@@ -65,7 +65,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className='w-full md:mt-20 flex items-center md:justify-between max-md:flex-col max-md:gap-3'>
+                <div className='w-full mt-10 md:mt-20 flex items-center md:justify-between max-md:flex-col max-md:gap-3'>
                     <p className='text-gray text-xs lg:text-base'>&copy; 2025 ValorantHub. All rights reserved.</p>
 
                     <div className='flex items-center gap-3 md:gap-5'>
